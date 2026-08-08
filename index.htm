@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>استمارة تسجيل لطلب خدمة النقل المدرسي لطلاب مدينتي</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Cairo Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f1f5f9;
+            color: #1e293b;
+        }
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .header-gradient {
+            background: linear-gradient(180deg, #0b132b 0%, #1c2541 60%, #1e3a8a 100%);
+        }
+        .gold-border-badge {
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.5);
+            color: #fbbf24;
+        }
+        .emerald-pill-badge {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #34d399;
+        }
+        .custom-card {
+            background: #ffffff;
+            border-radius: 1.25rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 15px -2px rgba(0, 0, 0, 0.05);
+        }
+        input, select {
+            background-color: #f8fafc !important;
+            color: #0f172a !important;
+            border-color: #cbd5e1 !important;
+        }
+        input:focus, select:focus {
+            background-color: #ffffff !important;
+            border-color: #4f46e5 !important;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15) !important;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-6 px-3 sm:px-6">
+
+    <div class="max-w-2xl mx-auto space-y-4">
+
+        <!-- Main Dark Header Card (Matching User Screenshot Exactly) -->
+        <div id="mainHeaderCard" class="header-gradient rounded-3xl border border-slate-700/60 shadow-xl p-6 sm:p-8 text-center space-y-4 relative overflow-hidden">
+            
+            <!-- Top Emerald Badge: Gaza Community -->
+            <div class="inline-flex items-center gap-2 emerald-pill-badge text-xs font-black px-4 py-1.5 rounded-full backdrop-blur-md shadow-sm">
+                <i class="fa-solid fa-users text-sm"></i>
+                <span>مجتمع أهل غزة في مدينتي</span>
+            </div>
+
+            <!-- Main Title -->
+            <h1 class="text-xl sm:text-2xl font-black text-white leading-tight tracking-wide px-2">
+                استمارة تسجيل لطلب خدمة النقل المدرسي لطلاب مدينتي
+            </h1>
+            
+            <!-- Academic Year Gold Badge -->
+            <div class="pt-1">
+                <div class="inline-flex items-center gap-2 gold-border-badge text-xs font-bold px-4 py-1.5 rounded-xl shadow-sm">
+                    <i class="fa-solid fa-bus text-amber-400"></i>
+                    <span>العام الدراسي 2026 - 2027</span>
+                </div>
+            </div>
+
+            <!-- School Bus Cartoon Illustration (Centered) -->
+            <div class="pt-2">
+                <img src="https://png.pngtree.com/png-clipart/20250711/original/pngtree-cheerful-school-bus-illustration-with-smiling-cartoon-face-png-image_21307552.png" 
+                     alt="School Bus" 
+                     class="w-28 sm:w-32 h-auto mx-auto drop-shadow-2xl scale-x-[-1]">
+            </div>
+
+            <!-- View Responses Admin Button -->
+            <div class="pt-2">
+                <button type="button" onclick="openAdminModal()" class="inline-flex items-center gap-2 bg-slate-800/80 hover:bg-slate-700 text-amber-300 font-bold text-xs px-5 py-2.5 rounded-xl border border-slate-600 transition shadow-md">
+                    <i class="fa-solid fa-chart-line text-amber-400"></i>
+                    <span>استعراض الردود</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Required Fields Notice Banner -->
+        <div id="requiredNotice" class="bg-amber-50/90 border border-amber-300/80 text-amber-800 rounded-2xl p-3 text-center text-xs font-extrabold shadow-sm">
+            <i class="fa-solid fa-asterisk text-red-500 ml-1"></i>
+            الأسئلة المشار إليها بـ (*) مطلوبة
+        </div>
+
+        <!-- Price Explanation Notice Card -->
+        <div id="priceNoticeCard" class="custom-card border-r-4 border-r-amber-500 p-5 space-y-3">
+            <div class="flex items-center gap-2 font-bold text-amber-700 text-sm">
+                <i class="fa-solid fa-coins text-lg text-amber-500"></i>
+                <span>تنويه هام بشأن أسعار التوصيل:</span>
+            </div>
+            <p class="leading-relaxed text-xs sm:text-sm text-slate-600">
+                الأسعار الموضحة بالنموذج هي تكلفة <strong>حمولة سيارة كاملة</strong> لكل مدرسة، وتقسم التكلفة بالتساوي على عدد الطلاب المسجلين بالسيارة.
+            </p>
+            <div class="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs text-slate-700 space-y-1.5">
+                <strong class="text-indigo-900 block font-bold">مثال توضيحي: إذا كانت تكلفة السيارة للمدرسة 10,000 جنيه:</strong>
+                <ul class="list-disc list-inside space-y-1 text-slate-600">
+                    <li>عدد الطلاب 5 ← حصة الطالب <span class="text-emerald-600 font-bold">2,000 جنيه</span></li>
+                    <li>عدد الطلاب 4 ← حصة الطالب <span class="text-emerald-600 font-bold">2,500 جنيه</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <form id="busForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+
+            <!-- Card 1: Guardian Information -->
+            <div class="custom-card p-6 space-y-4">
+                <div class="border-b border-slate-100 pb-3 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-black text-slate-800 text-base">بيانات ولي الأمر والسكن</h2>
+                        <p class="text-xs text-slate-500 font-semibold">معلومات التواصل وعنوان السكن بمدينتي</p>
+                    </div>
+                </div>
+
+                <!-- Guardian Name -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                        اسم ولي الأمر كامل <span class="text-red-500">*</span>
+                    </label>
+                    <div class="relative">
+                        <input type="text" id="guardianName" required placeholder="أدخل الاسم الثلاثي أو الرباعي" class="w-full border rounded-xl p-3 text-sm focus:outline-none transition pl-10">
+                        <i class="fa-solid fa-user absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+                    </div>
+                </div>
+
+                <!-- Phone Numbers -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                            رقم الموبايل 1 <span class="text-red-500">*</span>
+                        </label>
+                        <div class="relative">
+                            <input type="tel" id="guardianPhone1" required placeholder="01xxxxxxxxx" class="w-full border rounded-xl p-3 text-sm focus:outline-none transition text-right pl-10">
+                            <i class="fa-solid fa-phone absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                            رقم موبايل آخر (اختياري)
+                        </label>
+                        <div class="relative">
+                            <input type="tel" id="guardianPhone2" placeholder="01xxxxxxxxx" class="w-full border rounded-xl p-3 text-sm focus:outline-none transition text-right pl-10">
+                            <i class="fa-solid fa-mobile-screen absolute left-3.5 top-3.5 text-slate-400 text-sm"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Address Fields -->
+                <div class="pt-3 border-t border-slate-100">
+                    <label class="block text-xs font-bold text-slate-700 mb-2">
+                        العنوان التفصيلي بمدينتي <span class="text-red-500">*</span>
+                    </label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div>
+                            <span class="text-xs text-slate-500 block mb-1 font-bold">مجاورة B <span class="text-red-500">*</span></span>
+                            <input type="text" id="guardianAddressB" required placeholder="مثال: B10" class="w-full border rounded-xl p-2.5 text-sm focus:outline-none transition">
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-500 block mb-1 font-bold">مجموعة <span class="text-red-500">*</span></span>
+                            <input type="text" id="guardianGroup" required placeholder="مثال: 104" class="w-full border rounded-xl p-2.5 text-sm focus:outline-none transition">
+                        </div>
+                        <div>
+                            <span class="text-xs text-slate-500 block mb-1 font-bold">عمارة <span class="text-red-500">*</span></span>
+                            <input type="text" id="guardianBuilding" required placeholder="مثال: 12" class="w-full border rounded-xl p-2.5 text-sm focus:outline-none transition">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Children Count Selector -->
+            <div class="custom-card p-6">
+                <label class="block text-sm font-black text-slate-800 mb-3">
+                    عدد الأبناء المسجلين في المواصلات <span class="text-red-500">*</span>
+                </label>
+                <div class="grid grid-cols-4 gap-3">
+                    <button type="button" onclick="changeCount(1)" id="btnKids_1" class="count-btn border-2 border-indigo-600 bg-indigo-600 text-white font-black py-3 rounded-xl text-base text-center transition shadow-md">1</button>
+                    <button type="button" onclick="changeCount(2)" id="btnKids_2" class="count-btn border-2 border-slate-200 bg-slate-50 text-slate-700 font-bold py-3 rounded-xl text-base text-center transition hover:border-indigo-300">2</button>
+                    <button type="button" onclick="changeCount(3)" id="btnKids_3" class="count-btn border-2 border-slate-200 bg-slate-50 text-slate-700 font-bold py-3 rounded-xl text-base text-center transition hover:border-indigo-300">3</button>
+                    <button type="button" onclick="changeCount(4)" id="btnKids_4" class="count-btn border-2 border-slate-200 bg-slate-50 text-slate-700 font-bold py-3 rounded-xl text-base text-center transition hover:border-indigo-300">4</button>
+                </div>
+            </div>
+
+            <div id="studentsContainer" class="space-y-4">
+                <!-- Dynamic student forms will render here -->
+            </div>
+
+            <!-- Dynamic Overall Financial Summary Card -->
+            <div id="totalPricingSummary" class="bg-gradient-to-br from-slate-800 to-indigo-900 text-white rounded-2xl shadow-xl p-6 fade-in space-y-4 border border-indigo-400/30">
+                <div class="flex items-center justify-between border-b border-indigo-400/30 pb-3">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-calculator text-amber-400 text-lg"></i>
+                        <h3 class="font-bold text-sm text-white">الملخص المالي الإجمالي التقديري للطلب</h3>
+                    </div>
+                    <span id="summarySchoolsBadge" class="text-[11px] bg-indigo-950/60 text-amber-300 border border-amber-400/30 font-bold px-3 py-1 rounded-lg"></span>
+                </div>
+
+                <!-- Dynamic Schools Display List -->
+                <div id="summarySchoolsList" class="text-xs text-slate-100 space-y-2 bg-slate-900/70 p-3.5 rounded-xl border border-slate-700/50">
+                    <!-- Dynamic rendering of student schools -->
+                </div>
+
+                <div class="pt-1">
+                    <div class="bg-slate-900/60 p-4 rounded-xl border border-indigo-400/30 flex items-center justify-between">
+                        <span class="text-slate-200 text-xs sm:text-sm font-semibold">إجمالي حصة الأبناء التقديرية (حمولة 5 طلاب):</span>
+                        <span id="summaryEst5Price" class="text-emerald-400 font-black text-xl">0 ج.م</span>
+                    </div>
+                </div>
+                <p class="text-[11px] text-slate-300 italic">
+                    * يتحدد القسط النهائي بدقة لكل طالب بعد إغلاق التسجيل واكتمال حصر الأعداد وتوزيع الخطوط.
+                </p>
+            </div>
+
+            <!-- Submit Button Card -->
+            <div class="custom-card p-6 flex items-center justify-between gap-4">
+                <button type="submit" id="submitBtn" class="bg-gradient-to-r from-indigo-600 to-blue-700 hover:from-indigo-700 hover:to-blue-800 text-white font-black px-8 py-3.5 rounded-xl shadow-lg transition duration-200 flex items-center gap-2.5 text-sm">
+                    <i class="fa-solid fa-paper-plane text-sm"></i>
+                    <span>إرسال الاستجابة</span>
+                </button>
+                <button type="button" onclick="resetForm()" class="text-slate-400 hover:text-amber-600 font-bold text-xs transition">
+                    محو النموذج
+                </button>
+            </div>
+        </form>
+
+        <!-- Post-Submission Final Screen -->
+        <div id="successScreen" class="hidden custom-card p-8 text-center space-y-6 fade-in my-8">
+            <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto text-4xl shadow-inner border border-emerald-200">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl font-black text-slate-800">تم تسجيل الاستجابة بنجاح!</h2>
+                <p class="text-slate-600 text-sm max-w-md mx-auto leading-relaxed">
+                    شكراً لك، تم حفظ بيانات التسجيل لخدمة النقل المدرسي بمدينتي بنجاح وسيتم التواصل معكم قريباً.
+                </p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 max-w-md mx-auto space-y-3">
+                <button type="button" onclick="sendWhatsAppSummary()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-4 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-sm">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>إرسال ملخص الطلب عبر الواتساب</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Admin Password Modal -->
+        <div id="adminPasswordModal" class="hidden fixed inset-0 bg-slate-900/80 backdrop-blur-md z-50 flex items-center justify-center p-4">
+            <div class="custom-card max-w-md w-full p-6 shadow-2xl space-y-5 fade-in bg-white">
+                <div class="text-center space-y-2">
+                    <div class="w-14 h-14 bg-indigo-50 text-indigo-600 border border-indigo-100 rounded-2xl flex items-center justify-center mx-auto text-2xl">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800">تسجيل دخول المسؤول</h3>
+                    <p class="text-slate-500 text-xs">أدخل كلمة المرور لعرض إستجابات أولياء الأمور</p>
+                </div>
+
+                <div>
+                    <input type="password" id="adminPasswordInput" placeholder="كلمة المرور" class="w-full border rounded-xl p-3 text-center text-slate-800 focus:outline-none">
+                    <p id="passwordError" class="text-xs text-red-500 font-bold mt-2 hidden text-center">كلمة المرور غير صحيحة!</p>
+                </div>
+
+                <div class="flex items-center gap-3 pt-2">
+                    <button type="button" onclick="verifyAdminPassword()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 rounded-xl text-sm transition">
+                        دخول
+                    </button>
+                    <button type="button" onclick="closeAdminPasswordModal()" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-600 font-semibold py-2.5 rounded-xl text-sm transition">
+                        إلغاء
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Responses Panel -->
+        <div id="adminPanel" class="hidden space-y-4 fade-in">
+            <div class="header-gradient text-white rounded-2xl p-5 flex items-center justify-between shadow-xl border border-slate-700/60">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-indigo-600/80 rounded-xl flex items-center justify-center text-lg font-bold">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-black text-base">لوحة استعراض الردود المسجلة</h2>
+                        <p class="text-xs text-slate-300" id="responsesCount">جاري تحميل الاستجابات...</p>
+                    </div>
+                </div>
+                <button type="button" onclick="exitAdminPanel()" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-3.5 py-2 rounded-xl border border-slate-600 transition">
+                    خروج / إغلاق
+                </button>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-2 gap-3 text-xs">
+                <div class="custom-card p-3.5 flex items-center justify-between">
+                    <span class="text-slate-500 font-bold">إجمالي طلبات الأولياء:</span>
+                    <span id="statTotalRequests" class="font-black text-indigo-600 text-base">0</span>
+                </div>
+                <div class="custom-card p-3.5 flex items-center justify-between">
+                    <span class="text-slate-500 font-bold">إجمالي الأبناء المسجلين:</span>
+                    <span id="statTotalStudents" class="font-black text-emerald-600 text-base">0</span>
+                </div>
+            </div>
+
+            <div class="custom-card p-4 shadow-sm space-y-3">
+                <input type="text" id="searchResponsesInput" onkeyup="filterResponses()" placeholder="بحث باسم ولي الأمر، رقم التليفون، المجاورة، أو اسم المدرسة..." class="w-full border rounded-xl p-3 text-xs outline-none focus:border-indigo-500">
+                
+                <div id="responsesContainer" class="space-y-3">
+                    <!-- Fetched responses will load here dynamically -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKMOGRWtpLgvsE_rgudcY_PQoh5tH2r1AjTYSKk1Tu7qu28cRCpXFYlvH3PlSyreGtVw/exec";
+        
+        let currentKidsCount = 1;
+        let lastSubmittedData = null;
+
+        const schoolsData = [
+            { name: "أكاديمية فكرة + فكتوريا", price: 7500 },
+            { name: "مدرسة فيكتوريا", price: 7500 },
+            { name: "إيليا", price: 10000 },
+            { name: "وايلد اكاديمي ايست هب", price: 10000 },
+            { name: "وايلد اكاديمي الساوث بارك", price: 10000 },
+            { name: "أكاديمية الوردية", price: 10000 },
+            { name: "فيوتشر", price: 12000 },
+            { name: "رمسيس الشروق", price: 12000 },
+            { name: "عليان الشروق", price: 12000 },
+            { name: "فالكون الشروق", price: 12000 },
+            { name: "وايلد العاصمة الإدارية", price: 18000 },
+            { name: "سيد جلال", price: 18000 }
+        ];
+
+        const ordinals = ["الأول", "الثاني", "الثالث", "الرابع"];
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderStudents();
+        });
+
+        function changeCount(count) {
+            currentKidsCount = count;
+            for (let i = 1; i <= 4; i++) {
+                const btn = document.getElementById(`btnKids_${i}`);
+                if (i === count) {
+                    btn.className = "count-btn border-2 border-indigo-600 bg-indigo-600 text-white font-black py-3 rounded-xl text-base text-center transition shadow-md";
+                } else {
+                    btn.className = "count-btn border-2 border-slate-200 bg-slate-50 text-slate-700 font-bold py-3 rounded-xl text-base text-center transition hover:border-indigo-300";
+                }
+            }
+            renderStudents();
+        }
+
+        function preserveExistingData() {
+            const data = [];
+            for (let i = 0; i < 4; i++) {
+                const name = document.querySelector(`[name="studentName_${i}"]`)?.value || '';
+                const gender = document.querySelector(`[name="studentGender_${i}"]`)?.value || '';
+                const grade = document.querySelector(`[name="studentGrade_${i}"]`)?.value || '';
+                const school = document.querySelector(`[name="studentSchool_${i}"]`)?.value || '';
+                const shift = document.querySelector(`[name="studentShift_${i}"]`)?.value || '';
+                const timeFrom = document.querySelector(`[name="studentTimeFrom_${i}"]`)?.value || '';
+                const timeTo = document.querySelector(`[name="studentTimeTo_${i}"]`)?.value || '';
+
+                data.push({ name, gender, grade, school, shift, timeFrom, timeTo });
+            }
+            return data;
+        }
+
+        function renderStudents() {
+            const savedData = preserveExistingData();
+            const container = document.getElementById('studentsContainer');
+            container.innerHTML = '';
+
+            for (let i = 0; i < currentKidsCount; i++) {
+                const titleNum = ordinals[i] || `${i + 1}`;
+                const data = savedData[i] || {};
+
+                let hoursOptions = '<option value="">-- اختر --</option>';
+                for (let h = 6; h <= 18; h++) {
+                    const h12 = h > 12 ? h - 12 : h;
+                    const period = h >= 12 ? 'مساءً' : 'صباحاً';
+                    hoursOptions += `<option value="${h12}:00 ${period}">${h12}:00 ${period}</option>`;
+                    hoursOptions += `<option value="${h12}:30 ${period}">${h12}:30 ${period}</option>`;
+                }
+
+                const studentCardHtml = `
+                    <div class="custom-card p-6 space-y-4 fade-in">
+                        <div class="border-b border-slate-100 pb-3 flex items-center justify-between">
+                            <span class="font-black text-indigo-900 text-sm">بيانات الطالب/ة ${titleNum}</span>
+                            <span class="text-xs bg-indigo-50 text-indigo-600 font-bold px-3 py-1 rounded-full border border-indigo-100">طالب ${i + 1}</span>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                                    إسم الطالب/ة ${titleNum} <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" name="studentName_${i}" required value="${data.name || ''}" placeholder="اسم الطالب الثلاثي" class="w-full border rounded-xl p-3 text-sm focus:outline-none transition">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                                    الجنس <span class="text-red-500">*</span>
+                                </label>
+                                <select name="studentGender_${i}" required class="w-full border rounded-xl p-3 text-sm focus:outline-none transition">
+                                    <option value="">-- اختر الجنس --</option>
+                                    <option value="ذكر" ${data.gender === 'ذكر' ? 'selected' : ''}>ذكر</option>
+                                    <option value="أنثى" ${data.gender === 'أنثى' ? 'selected' : ''}>أنثى</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                                    الصف الدراسي الحالي <span class="text-red-500">*</span>
+                                </label>
+                                <input type="text" name="studentGrade_${i}" required value="${data.grade || ''}" placeholder="مثال: الرابع الابتدائي" class="w-full border rounded-xl p-3 text-sm focus:outline-none transition">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                                    اسم المدرسة <span class="text-red-500">*</span>
+                                </label>
+                                <select name="studentSchool_${i}" required onchange="updatePriceCalculator(${i})" class="w-full border rounded-xl p-3 text-sm focus:outline-none transition">
+                                    <option value="">-- اختر المدرسة --</option>
+                                    ${schoolsData.map(s => `
+                                        <option value="${s.name}" data-price="${s.price}" ${data.school === s.name ? 'selected' : ''}>${s.name} (${s.price.toLocaleString('ar-EG')} ج.م)</option>
+                                    `).join('')}
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Price Card per Student -->
+                        <div id="costCard_${i}" class="hidden bg-slate-900 text-white border border-slate-800 rounded-xl p-4 text-xs space-y-2 fade-in">
+                            <div class="flex items-center justify-between font-bold text-amber-300 border-b border-slate-800 pb-2">
+                                <span class="flex items-center gap-1.5">
+                                    <i class="fa-solid fa-coins text-amber-400"></i>
+                                    تفاصيل تكلفة هذه المدرسة:
+                                </span>
+                                <span id="carPriceVal_${i}" class="text-xs font-black text-white">0 ج.م</span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                                <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800">
+                                    <span class="block text-[11px] text-slate-400">سعر الطالب التقديري (سيارة 5 طلاب):</span>
+                                    <span id="p5Val_${i}" class="font-bold text-emerald-400 text-xs">0 ج.م / طالب</span>
+                                </div>
+                                <div class="bg-slate-950 p-2.5 rounded-lg border border-slate-800">
+                                    <span class="block text-[11px] text-slate-400">سعر الطالب التقديري (سيارة 4 طلاب):</span>
+                                    <span id="p4Val_${i}" class="font-bold text-emerald-400 text-xs">0 ج.م / طالب</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Shift & Timing Options -->
+                        <div class="pt-3 border-t border-slate-100">
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1.5">
+                                        طبيعة الدوام المدرسي <span class="text-red-500">*</span>
+                                    </label>
+                                    <select name="studentShift_${i}" required class="w-full border rounded-xl p-3 text-sm focus:outline-none transition">
+                                        <option value="">-- اختر طبيعة الدوام --</option>
+                                        <option value="صباحي" ${data.shift === 'صباحي' ? 'selected' : ''}>صباحي</option>
+                                        <option value="مسائي" ${data.shift === 'مسائي' ? 'selected' : ''}>مسائي</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1.5">من الساعة (اختياري)</label>
+                                    <select name="studentTimeFrom_${i}" class="w-full border rounded-xl p-3 text-xs focus:outline-none transition">
+                                        ${hoursOptions}
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-600 mb-1.5">إلى الساعة (اختياري)</label>
+                                    <select name="studentTimeTo_${i}" class="w-full border rounded-xl p-3 text-xs focus:outline-none transition">
+                                        ${hoursOptions}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.insertAdjacentHTML('beforeend', studentCardHtml);
+
+                if (data.school) {
+                    updatePriceCalculator(i);
+                }
+            }
+
+            calculateOverallTotals();
+        }
+
+        function updatePriceCalculator(studentIdx) {
+            const selectEl = document.querySelector(`select[name="studentSchool_${studentIdx}"]`);
+            const costCard = document.getElementById(`costCard_${studentIdx}`);
+            const selectedOption = selectEl.options[selectEl.selectedIndex];
+
+            if (selectedOption && selectedOption.value) {
+                const carPrice = parseInt(selectedOption.dataset.price, 10);
+                const p5 = Math.round(carPrice / 5);
+                const p4 = Math.round(carPrice / 4);
+
+                document.getElementById(`carPriceVal_${studentIdx}`).innerText = `${carPrice.toLocaleString('ar-EG')} ج.م (حمولة كاملة)`;
+                document.getElementById(`p5Val_${studentIdx}`).innerText = `${p5.toLocaleString('ar-EG')} ج.م`;
+                document.getElementById(`p4Val_${studentIdx}`).innerText = `${p4.toLocaleString('ar-EG')} ج.م`;
+
+                costCard.classList.remove('hidden');
+            } else {
+                costCard.classList.add('hidden');
+            }
+
+            calculateOverallTotals();
+        }
+
+        function calculateOverallTotals() {
+            let totalCarPrice = 0;
+            let totalEst5 = 0;
+
+            const schoolsList = [];
+            let allSameSchool = true;
+            let firstSchool = null;
+
+            for (let i = 0; i < currentKidsCount; i++) {
+                const selectEl = document.querySelector(`select[name="studentSchool_${i}"]`);
+                const studentNameInput = document.querySelector(`input[name="studentName_${i}"]`);
+                const studentName = studentNameInput?.value.trim() || `الطالب ${i + 1}`;
+
+                if (selectEl && selectEl.value) {
+                    const selectedOption = selectEl.options[selectEl.selectedIndex];
+                    const carPrice = parseInt(selectedOption.dataset.price, 10);
+                    const schoolName = selectEl.value;
+
+                    totalCarPrice += carPrice;
+                    totalEst5 += Math.round(carPrice / 5);
+
+                    schoolsList.push({ studentName, schoolName });
+
+                    if (firstSchool === null) {
+                        firstSchool = schoolName;
+                    } else if (firstSchool !== schoolName) {
+                        allSameSchool = false;
+                    }
+                }
+            }
+
+            const schoolsListContainer = document.getElementById('summarySchoolsList');
+            const schoolsBadge = document.getElementById('summarySchoolsBadge');
+
+            if (schoolsList.length === 0) {
+                schoolsListContainer.innerHTML = '<span>لم يتم اختيار المدارس بعد</span>';
+                schoolsBadge.innerText = '';
+            } else if (allSameSchool && firstSchool) {
+                schoolsBadge.innerText = 'مدرسة واحدة';
+                schoolsListContainer.innerHTML = `
+                    <div class="flex items-center gap-2 text-amber-300 font-bold">
+                        <i class="fa-solid fa-school text-xs"></i>
+                        <span>جميع الأبناء في مدرسة: ${firstSchool}</span>
+                    </div>
+                `;
+            } else {
+            document.getElementById('summarySchoolsList').innerHTML = schoolsList.map(item => `
+                <div class="flex items-center justify-between border-b border-slate-800 pb-1">
+                    <span class="text-slate-300">الطالب: <strong>${item.studentName}</strong></span>
+                    <span class="text-amber-300 font-bold">${item.schoolName}</span>
+                </div>
+            `).join('');
+        }
+
+        if (document.getElementById('summaryTotalCarPrice')) {
+            document.getElementById('summaryTotalCarPrice').innerText = `${totalCarPrice.toLocaleString('ar-EG')} ج.م`;
+        }
+        document.getElementById('summaryEst5Price').innerText = `${totalEst5.toLocaleString('ar-EG')} ج.م`;
+    }
+
+    function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin text-sm"></i> <span>جاري إرسال البيانات...</span>`;
+
+            const guardianName = document.getElementById('guardianName').value;
+            const phone1 = document.getElementById('guardianPhone1').value;
+            const phone2 = document.getElementById('guardianPhone2').value;
+            const addressB = document.getElementById('guardianAddressB').value;
+            const group = document.getElementById('guardianGroup').value;
+            const building = document.getElementById('guardianBuilding').value;
+
+            const fullAddress = `مجاورة B: ${addressB} | مجموعة: ${group} | عمارة: ${building}`;
+
+            const students = [];
+            for (let i = 0; i < currentKidsCount; i++) {
+                const name = document.querySelector(`[name="studentName_${i}"]`)?.value || '';
+                const gender = document.querySelector(`[name="studentGender_${i}"]`)?.value || '';
+                const grade = document.querySelector(`[name="studentGrade_${i}"]`)?.value || '';
+                const schoolSelect = document.querySelector(`[name="studentSchool_${i}"]`);
+                const schoolName = schoolSelect?.value || '';
+                const shift = document.querySelector(`[name="studentShift_${i}"]`)?.value || '';
+                
+                const timeFrom = document.querySelector(`[name="studentTimeFrom_${i}"]`)?.value || '';
+                const timeTo = document.querySelector(`[name="studentTimeTo_${i}"]`)?.value || '';
+                let timingStr = '';
+                if (timeFrom || timeTo) {
+                    timingStr = `من ${timeFrom || 'غير محدد'} إلى ${timeTo || 'غير محدد'}`;
+                }
+
+                students.push({
+                    name: name,
+                    gender: gender,
+                    grade: grade,
+                    school: schoolName,
+                    shift: shift,
+                    timing: timingStr
+                });
+            }
+
+            const payload = {
+                guardianName,
+                phone1,
+                phone2: phone2 || "غير مدخل",
+                addressB,
+                group,
+                building,
+                fullAddress,
+                kidsCount: currentKidsCount,
+                students
+            };
+
+            lastSubmittedData = payload;
+
+            fetch(SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            })
+            .then(() => {
+                showSuccessScreen();
+            })
+            .catch(error => {
+                console.error("Submission Error:", error);
+                showSuccessScreen();
+            });
+        }
+
+        function showSuccessScreen() {
+            document.getElementById('busForm').classList.add('hidden');
+            document.getElementById('requiredNotice').classList.add('hidden');
+            document.getElementById('priceNoticeCard').classList.add('hidden');
+            document.getElementById('successScreen').classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function sendWhatsAppSummary() {
+            if (!lastSubmittedData) return;
+
+            const targetPhone = "201115568888";
+            let msg = `*طلب تسجيل مواصلات مدرسة جديدة - مجتمع أهل غزة بمدينتي*\n\n`;
+            msg += `👤 *اسم ولي الأمر:* ${lastSubmittedData.guardianName}\n`;
+            msg += `📱 *رقم الهاتف 1:* ${lastSubmittedData.phone1}\n`;
+            if (lastSubmittedData.phone2 && lastSubmittedData.phone2 !== "غير مدخل") {
+                msg += `📱 *رقم الهاتف 2:* ${lastSubmittedData.phone2}\n`;
+            }
+            msg += `📍 *العنوان:* ${lastSubmittedData.fullAddress}\n`;
+            msg += `👨‍👩‍👧‍👦 *عدد الأبناء:* ${lastSubmittedData.kidsCount}\n\n`;
+            msg += `*بيانات الأبناء والمدارس:*\n`;
+
+            lastSubmittedData.students.forEach((s, idx) => {
+                msg += `\n*${idx + 1}. ${s.name}*\n`;
+                msg += ` - الجنس: ${s.gender}\n`;
+                msg += ` - الصف: ${s.grade}\n`;
+                msg += ` - المدرسة: ${s.school}\n`;
+                msg += ` - الدوام: ${s.shift}\n`;
+                if (s.timing) {
+                    msg += ` - المواعيد: ${s.timing}\n`;
+                }
+            });
+
+            const encodedMsg = encodeURIComponent(msg);
+            window.open(`https://wa.me/${targetPhone}?text=${encodedMsg}`, '_blank');
+        }
+
+        function resetForm() {
+            if (confirm("هل أنت تأكد من محو جميع البيانات بالنموذج؟")) {
+                document.getElementById('busForm').reset();
+                currentKidsCount = 1;
+                changeCount(1);
+            }
+        }
+
+        function openAdminModal() {
+            document.getElementById('adminPasswordModal').classList.remove('hidden');
+            document.getElementById('adminPasswordInput').value = '';
+            document.getElementById('passwordError').classList.add('hidden');
+        }
+
+        function closeAdminPasswordModal() {
+            document.getElementById('adminPasswordModal').classList.add('hidden');
+        }
+
+        function verifyAdminPassword() {
+            const pwd = document.getElementById('adminPasswordInput').value.trim();
+            if (pwd === "moh2026") {
+                closeAdminPasswordModal();
+                showAdminPanel();
+            } else {
+                document.getElementById('passwordError').classList.remove('hidden');
+            }
+        }
+
+        function showAdminPanel() {
+            document.getElementById('busForm').classList.add('hidden');
+            document.getElementById('requiredNotice').classList.add('hidden');
+            document.getElementById('priceNoticeCard').classList.add('hidden');
+            document.getElementById('successScreen').classList.add('hidden');
+            document.getElementById('mainHeaderCard').classList.add('hidden');
+            document.getElementById('adminPanel').classList.remove('hidden');
+
+            fetchAdminResponses();
+        }
+
+        function exitAdminPanel() {
+            document.getElementById('adminPanel').classList.add('hidden');
+            document.getElementById('mainHeaderCard').classList.remove('hidden');
+            document.getElementById('requiredNotice').classList.remove('hidden');
+            document.getElementById('priceNoticeCard').classList.remove('hidden');
+
+            if (lastSubmittedData) {
+                document.getElementById('successScreen').classList.remove('hidden');
+            } else {
+                document.getElementById('busForm').classList.remove('hidden');
+            }
+        }
+
+        function fetchAdminResponses() {
+            const container = document.getElementById('responsesContainer');
+            const countLabel = document.getElementById('responsesCount');
+            container.innerHTML = '<div class="text-center text-xs text-slate-500 py-6"><i class="fa-solid fa-spinner fa-spin text-lg mb-2 text-indigo-600 block"></i>جاري جلب البيانات من Google Sheets...</div>';
+
+            fetch(SCRIPT_URL)
+            .then(res => res.json())
+            .then(data => {
+                if (!Array.isArray(data) || data.length === 0) {
+                    container.innerHTML = '<div class="text-center text-xs text-slate-500 py-6">لا توجد إستجابات مسجلة حتى الآن.</div>';
+                    countLabel.innerText = 'إجمالي الردود: 0';
+                    document.getElementById('statTotalRequests').innerText = '0';
+                    document.getElementById('statTotalStudents').innerText = '0';
+                    return;
+                }
+
+                let totalKids = 0;
+                data.forEach(item => {
+                    totalKids += parseInt(item.kidsCount || 1, 10);
+                });
+
+                countLabel.innerText = `إجمالي الردود: ${data.length}`;
+                document.getElementById('statTotalRequests').innerText = data.length;
+                document.getElementById('statTotalStudents').innerText = totalKids;
+
+                window.allResponses = data;
+                renderResponsesList(data);
+            })
+            .catch(err => {
+                console.error(err);
+                container.innerHTML = '<div class="text-center text-xs text-red-500 py-6">حدث خطأ أثناء جلب البيانات. تأكد من إعداد السكريبت بنجاح.</div>';
+            });
+        }
+
+        function renderResponsesList(list) {
+            const container = document.getElementById('responsesContainer');
+            if (list.length === 0) {
+                container.innerHTML = '<div class="text-center text-xs text-slate-500 py-4">لا توجد نتائج مطابقة للبحث.</div>';
+                return;
+            }
+
+            container.innerHTML = list.map(item => `
+                <div class="border border-slate-200 rounded-xl p-4 text-xs bg-slate-50 space-y-3 hover:border-indigo-300 transition shadow-sm">
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-2">
+                        <div class="flex items-center gap-2">
+                            <span class="font-black text-indigo-950 text-sm">${item.guardianName}</span>
+                            <span class="text-[10px] bg-indigo-100 text-indigo-700 px-2 py-0.5 rounded-full font-bold">${item.kidsCount} أطفال</span>
+                        </div>
+                        <span class="text-[10px] text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200 font-semibold">${item.timestamp || ''}</span>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-slate-700">
+                        <div class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-phone text-indigo-600 text-xs"></i>
+                            <span>موبايل 1:</span>
+                            <a href="tel:${item.phone1}" class="text-indigo-600 font-bold hover:underline">${item.phone1}</a>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <i class="fa-solid fa-phone text-slate-400 text-xs"></i>
+                            <span>موبايل 2:</span>
+                            <strong class="text-slate-800">${item.phone2 || '-'}</strong>
+                        </div>
+                        <div class="col-span-1 sm:col-span-2 flex items-center gap-1.5">
+                            <i class="fa-solid fa-location-dot text-amber-600 text-xs"></i>
+                            <span>العنوان:</span>
+                            <strong class="text-slate-800">${item.fullAddress || `B:${item.addressB} - G:${item.group} - Bld:${item.building}`}</strong>
+                        </div>
+                    </div>
+
+                    <div class="pt-2 border-t border-slate-200">
+                        <strong class="text-slate-800 block mb-1.5 font-bold">الأبناء المسجلين:</strong>
+                        <div class="space-y-1.5">
+                            ${(item.students || []).map((s, idx) => `
+                                <div class="bg-white p-2.5 rounded-lg border border-slate-200 text-slate-700">
+                                    • <strong class="text-indigo-900">${s.name}</strong> (${s.gender}) - الصف: ${s.grade} - المدرسة: <span class="text-amber-700 font-bold">${s.school}</span> - الدوام: ${s.shift} ${s.timing ? `[${s.timing}]` : ''}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="pt-1 flex items-center justify-end gap-2">
+                        <a href="https://wa.me/2${item.phone1}" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-3 py-1.5 rounded-lg text-[11px] flex items-center gap-1 transition">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>تواصل واتساب</span>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterResponses() {
+            const query = document.getElementById('searchResponsesInput').value.toLowerCase();
+            if (!window.allResponses) return;
+
+            const filtered = window.allResponses.filter(r => {
+                const searchStr = `${r.guardianName} ${r.phone1} ${r.fullAddress} ${JSON.stringify(r.students)}`.toLowerCase();
+                return searchStr.includes(query);
+            });
+
+            renderResponsesList(filtered);
+        }
+    </script>
+</body>
+</html>
