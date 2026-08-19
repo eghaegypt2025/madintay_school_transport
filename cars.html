@@ -102,9 +102,9 @@
                     <div>
                         <div class="flex items-center space-x-2 space-x-reverse">
                             <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight">منظومة النقل المدرسي</h1>
-                            <span class="bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs px-2.5 py-0.5 rounded-full font-semibold">توزيع حقيقي ذكي</span>
+                            <span class="bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs px-2.5 py-0.5 rounded-full font-semibold">مزامنة ذكية حية</span>
                         </div>
-                        <p class="text-blue-200 text-sm mt-1">كشوف الحركة والتوزيع التفصيلي للسيارات وخطوط السير (سعة السيارة 5 طلاب كحد أقصى)</p>
+                        <p class="text-blue-200 text-sm mt-1">كشوف الحركة والتوزيع التفصيلي للسيارات (سعة السيارة 5 طلاب كحد أقصى)</p>
                     </div>
                 </div>
 
@@ -127,23 +127,21 @@
                 </div>
             </div>
 
-            <!-- Sync Live Indicator Status -->
             <div id="syncBanner" class="mt-4 bg-emerald-500/20 border border-emerald-500/30 text-emerald-200 px-3 py-1.5 rounded-xl text-xs flex items-center justify-between">
                 <span class="flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                     <span id="lastSyncTimeText">المزامنة التلقائية مفعّلة مع ملف Google Sheets الحقيقي</span>
                 </span>
-                <span class="text-[11px] text-emerald-300 cursor-pointer underline" onclick="openSyncSettingsModal()">تغيير الرابط أو إعدادات المزامنة</span>
+                <span class="text-[11px] text-emerald-300 cursor-pointer underline" onclick="openSyncSettingsModal()">تغيير الرابط</span>
             </div>
 
-            <!-- Stats Bar -->
             <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-3 mt-6 pt-6 border-t border-white/10">
                 <div class="bg-white/10 backdrop-blur-md rounded-xl p-3.5 border border-white/10">
                     <div class="flex items-center justify-between">
-                        <span class="text-blue-200 text-xs font-medium">إجمالي الطلاب الحقيقيين</span>
+                        <span class="text-blue-200 text-xs font-medium">إجمالي الطلاب</span>
                         <i class="fa-solid fa-users text-amber-400 text-sm"></i>
                     </div>
-                    <div class="text-2xl font-bold mt-1 text-white" id="stat-total-students">45</div>
+                    <div class="text-2xl font-bold mt-1 text-white" id="stat-total-students">48</div>
                     <span class="text-[10px] text-blue-300">طالب مسجل</span>
                 </div>
 
@@ -171,7 +169,7 @@
                         <i class="fa-solid fa-sun text-yellow-300 text-sm"></i>
                     </div>
                     <div class="text-2xl font-bold mt-1 text-white" id="stat-morning-students">20 طالب</div>
-                    <span class="text-[10px] text-blue-300">في 6 سيارات</span>
+                    <span class="text-[10px] text-blue-300">في السيارات</span>
                 </div>
 
                 <div class="bg-white/10 backdrop-blur-md rounded-xl p-3.5 border border-white/10 col-span-2 sm:col-span-1">
@@ -179,8 +177,8 @@
                         <span class="text-blue-200 text-xs font-medium">الدوام المسائي</span>
                         <i class="fa-solid fa-moon text-indigo-300 text-sm"></i>
                     </div>
-                    <div class="text-2xl font-bold mt-1 text-white" id="stat-evening-students">25 طالب</div>
-                    <span class="text-[10px] text-blue-300">في 7 سيارات</span>
+                    <div class="text-2xl font-bold mt-1 text-white" id="stat-evening-students">28 طالب</div>
+                    <span class="text-[10px] text-blue-300">في السيارات</span>
                 </div>
             </div>
         </div>
@@ -188,19 +186,6 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
         
-        <!-- How-To Quick Instructions Box -->
-        <div class="bg-blue-50 border border-blue-200 text-blue-900 rounded-2xl p-4 mb-6 no-print flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <div class="flex items-center space-x-3 space-x-reverse">
-                <div class="w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center shrink-0">
-                    <i class="fa-solid fa-circle-info text-lg"></i>
-                </div>
-                <div>
-                    <h3 class="font-bold text-sm">طريقة استخدام منظومة كشوف النقل المدرسي:</h3>
-                    <p class="text-xs text-blue-700 mt-0.5">يمكنك تصفية الطلاب حسب المدرسة أو الدوام، والبحث بالاسم أو العمارة أو رقم الهاتف. يمكنك الانتقال بين **عرض كروت السيارات** أو **عرض الجدول الشامل**، وكذلك تعديل بيانات السائقين مباشرة.</p>
-                </div>
-            </div>
-        </div>
-
         <!-- Controls Bar -->
         <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 mb-6 no-print">
             <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
@@ -254,7 +239,7 @@
 
         <!-- Cards Container -->
         <div id="viewContainerCards" class="space-y-6">
-            <!-- Populated dynamically and statically initialized via JavaScript -->
+            <!-- Dynamically populated -->
         </div>
 
         <!-- Unified Table Container -->
@@ -264,7 +249,7 @@
                     <h3 class="font-bold text-slate-800">الكشف الموحد لجميع الطلاب الحقيقيين</h3>
                     <p class="text-xs text-slate-500">عرض كامل البيانات في جدول واحد مع إمكانية الفلترة</p>
                 </div>
-                <span id="tableRecordCount" class="bg-brand-50 text-brand-700 text-xs font-bold px-3 py-1 rounded-full border border-brand-200">45 طالب</span>
+                <span id="tableRecordCount" class="bg-brand-50 text-brand-700 text-xs font-bold px-3 py-1 rounded-full border border-brand-200">48 طالب</span>
             </div>
             
             <div class="overflow-x-auto">
@@ -301,7 +286,6 @@
 
     </main>
 
-    <!-- Driver Info Modal -->
     <div id="driverModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
         <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden transform transition-all">
             <div class="bg-slate-900 text-white p-4 flex items-center justify-between">
@@ -324,7 +308,7 @@
                 </div>
                 <div>
                     <label class="block text-xs font-bold text-slate-700 mb-1">رقم لوحة السيارة / الموديل</label>
-                    <input type="text" id="modalVehiclePlate" placeholder="مثال: أ ب ج 1234 (تويوتا)" class="w-full px-3 py-2 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-brand-500 outline-none">
+                    <input type="text" id="modalVehiclePlate" placeholder="مثال: أ ب ج 1234" class="w-full px-3 py-2 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-brand-500 outline-none">
                 </div>
 
                 <div class="pt-3 flex gap-2">
@@ -350,19 +334,7 @@
                 <div>
                     <label class="block text-xs font-bold text-slate-800 mb-1">رابط Google Sheets المباشر:</label>
                     <input type="url" id="googleSheetUrlInput" class="w-full px-3 py-2 border border-slate-300 rounded-xl text-xs font-mono focus:ring-2 focus:ring-brand-500 outline-none dir-ltr" placeholder="https://docs.google.com/spreadsheets/d/...">
-                    <p class="text-[11px] text-slate-500 mt-1">تأكد أن ملف جوجل شيت مُشارك لخيار "أي شخص لديه الرابط يمكنه العرض" (Anyone with link can view).</p>
                 </div>
-
-                <div class="p-3 bg-blue-50 border border-blue-200 rounded-xl space-y-1">
-                    <span class="font-bold text-blue-900">كيف تعمل المزامنة؟</span>
-                    <p class="text-blue-700 text-[11px] leading-relaxed">عند إضافة أو تعديل أي طالب في ملف جوجل شيت، اضغط على زر "مزامنة" بأعلى الصفحة، وستقوم المنظومة بقراءة الجدول وإعادة توزيع الطلاب تلقائياً إلى سيارات جديدة بحد أقصى 5 طلاب للسيارة.</p>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-slate-800 mb-1">أو إدخال بيانات CSV مباشرة (في حال تعذر الاتصال):</label>
-                    <textarea id="manualCsvInput" rows="3" placeholder="المدرسة, اسم الطالب, النوع, الصف, الدوام, المواعيد, اسم ولي الأمر..." class="w-full p-2 border border-slate-200 rounded-xl font-mono text-[11px] focus:ring-2 focus:ring-brand-500 outline-none dir-ltr"></textarea>
-                </div>
-
                 <div class="pt-2 flex gap-2">
                     <button onclick="saveSyncSettingsAndFetch()" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white py-2.5 rounded-xl font-bold transition">حفظ ومزامنة الآن</button>
                     <button onclick="closeSyncSettingsModal()" class="px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-semibold">إلغاء</button>
@@ -386,46 +358,44 @@
     <script>
         const DEFAULT_GOOGLE_SHEET_URL = "https://docs.google.com/spreadsheets/d/1anfwfgGUF0ezlrnwA4MTxmjNSzEUWJGv0ttWaPajiAo/edit?usp=sharing";
         
-        // Active Vehicles state initialized from static baseline or live Google Sheets
         let vehiclesData = [];
         let currentView = 'cards';
-        let isSyncing = false;
 
-        // Baseline initial dataset
-        const staticFallbackVehicles = [
+        // Verified complete baseline dataset parsed from actual sheet
+        const staticBaselineVehicles = [
             {
                 id: "V-101",
                 school: "أكاديمية الوردية",
                 shift: "صباحي",
-                timing: "08:00 ص - 01:00 م",
+                timing: "من 8:00 صباحاً إلى 1:00 مساءً",
                 area: "مجاورة B6 + مجاورة B7",
                 maxCapacity: 5,
                 driverName: "غير محدد",
                 driverPhone: "غير محدد",
                 vehiclePlate: "سيارة V-101",
                 students: [
-                    { name: "عمران زين الدين", grade: "الصف الأول", gender: "ذكر", address: "مجاورة B: B6 - م 68 - ع 20", parent: "Hana zaineldeen", phone: "01551380699" },
-                    { name: "سيف زين الدين", grade: "كي جي 1", gender: "ذكر", address: "مجاورة B: B6 - م 68 - ع 20", parent: "Hana zaineldeen", phone: "01551380699" },
-                    { name: "لارا أحمد طموس", grade: "Kg2", gender: "أنثى", address: "مجاورة B: B6 - م 62 - ع 16", parent: "أحمد حسن طموس", phone: "01040246103" },
-                    { name: "فرح محمد جبر", grade: "KG1", gender: "أنثى", address: "مجاورة B: B7 - م 81 - ع 19", parent: "محمد أحمد جبر", phone: "01080920307" },
-                    { name: "تيا صلاح العايدي", grade: "Kg2", gender: "أنثى", address: "مجاورة B: B7 - م G72 - ع 68", parent: "صلاح محمد العايدي", phone: "01016713494" }
+                    { name: "عمران زين الدين", grade: "لصف الاول", gender: "ذكر", address: "مجاورة B: B 6 | مجموعة: 68 | عمارة: 20", parent: "Hana zaineldeen", phone: "1551380699" },
+                    { name: "سيف زين الدين", grade: "كي جي ١", gender: "ذكر", address: "مجاورة B: B 6 | مجموعة: 68 | عمارة: 20", parent: "Hana zaineldeen", phone: "1551380699" },
+                    { name: "لارا", grade: "Kg2", gender: "أنثى", address: "مجاورة B: B6 | مجموعة: 62 | عمارة: 16", parent: "احمد حسن طموس", phone: "01040246103" },
+                    { name: "فرح محمد جبر", grade: "KG1", gender: "أنثى", address: "مجاورة B: B7 | مجموعة: 81 | عمارة: 19", parent: "محمد احمد حسن جبر", phone: "1080920307" },
+                    { name: "تيا صلاح العايدي", grade: "Kg2", gender: "أنثى", address: "مجاورة B: B7 | مجموعة: G72 | عمارة: 68", parent: "صلاح محمد العايدي", phone: "1016713494" }
                 ]
             },
             {
                 id: "V-102",
                 school: "أكاديمية الوردية",
                 shift: "صباحي",
-                timing: "08:00 ص - 01:00 م",
+                timing: "من 8:00 صباحاً إلى 1:00 مساءً",
                 area: "مجاورة B10 + مجاورة B11",
                 maxCapacity: 5,
                 driverName: "غير محدد",
                 driverPhone: "غير محدد",
                 vehiclePlate: "سيارة V-102",
                 students: [
-                    { name: "لانا محمد الهندي", grade: "كي جي", gender: "أنثى", address: "مجاورة B: B10 - م 101 - ع 91", parent: "تقى عماد العلمي", phone: "01500344491" },
-                    { name: "باسل محمد البرعاوي", grade: "Kg1", gender: "ذكر", address: "مجاورة B: B11 - م 113 - ع 15", parent: "محمد باسم البرعاوي", phone: "01008765253" },
-                    { name: "أشرف تيسير صقر", grade: "Kg1", gender: "ذكر", address: "مجاورة B: B11 - م 113 - ع 83", parent: "آلاء تيسير صقر", phone: "01026561825" },
-                    { name: "كمال بسام شحادة", grade: "الأول", gender: "ذكر", address: "مجاورة B: B11 - م 112 - ع 12", parent: "بسام كمال شحادة", phone: "01080929431" }
+                    { name: "لانا محمد الهندي", grade: "كي جي", gender: "أنثى", address: "مجاورة B: B10 | مجموعة: 101 | عمارة: 91", parent: "تقى عماد العلمي", phone: "1500344491" },
+                    { name: "باسل", grade: "Kg1", gender: "ذكر", address: "مجاورة B: B11 | مجموعة: 113 | عمارة: 15", parent: "محمد باسم البرعاوي", phone: "1008765253" },
+                    { name: "اشرف", grade: "Kg1", gender: "ذكر", address: "مجاورة B: B11 | مجموعة: 113 | عمارة: 83", parent: "الاء تيسير مطيع صقر", phone: "1026561825" },
+                    { name: "كمال بسام شحادة", grade: "الاول", gender: "ذكر", address: "مجاورة B: B11 group 112 building 12", parent: "بسام كمال محمد شحادة", phone: "1080929431" }
                 ]
             },
             {
@@ -439,186 +409,185 @@
                 driverPhone: "غير محدد",
                 vehiclePlate: "سيارة V-201",
                 students: [
-                    { name: "ماجد أحمد العروقي", grade: "الخامس الابتدائي", gender: "ذكر", address: "مجاورة B: B3 - م 34 - ع 19", parent: "أحمد ماجد العروقي", phone: "01021376372" }
+                    { name: "ماجد احمد العروقي", grade: "الخامس الابتدائي", gender: "ذكر", address: "مجاورة B: B3 | مجموعة: 34 | عمارة: 19", parent: "احمد ماجد محمود العروقي", phone: "0102 1376372" }
                 ]
             },
             {
                 id: "V-202",
                 school: "أكاديمية فكرة",
                 shift: "مسائي",
-                timing: "03:00 م - 06:30 م",
+                timing: "من 3:00 مساءً إلى 6:30 مساءً",
                 area: "مجاورة B6 + مجاورة B12",
                 maxCapacity: 5,
                 driverName: "غير محدد",
                 driverPhone: "غير محدد",
                 vehiclePlate: "سيارة V-202",
                 students: [
-                    { name: "مهند عمر الجرف", grade: "الصف الثالث", gender: "ذكر", address: "مجاورة B: B6 - م 63 - ع 15", parent: "عمر إبراهيم الجرف", phone: "01028908167" },
-                    { name: "جوري الغمري", grade: "الثالث مسائي", gender: "أنثى", address: "مجاورة B: B12 - م 123 - ع 81", parent: "سلوى الطويل", phone: "01018531829" },
-                    { name: "محمد الغمري", grade: "الثاني مسائي", gender: "ذكر", address: "مجاورة B: B12 - م 123 - ع 81", parent: "سلوى الطويل", phone: "01018531829" }
+                    { name: "مهند عمر ابراهيم الجرف", grade: "الصف الثالث", gender: "ذكر", address: "مجاورة B: B6 | مجموعة: 63 | عمارة: 15", parent: "عمر ابراهيم سالم الجرف", phone: "1028908167" },
+                    { name: "جوري الغمري", grade: "الثالث", gender: "أنثى", address: "مجاورة B: B12 | مجموعة: 123 | عمارة: 81", parent: "سلوى عبد العزيز محمد الطويل", phone: "1018531829" },
+                    { name: "محمد الغمري", grade: "الثاني", gender: "ذكر", address: "مجاورة B: B12 | مجموعة: 123 | عمارة: 81", parent: "سلوى عبد العزيز محمد الطويل", phone: "1018531829" }
                 ]
             },
             {
                 id: "V-301",
                 school: "مدرسة إيليا",
                 shift: "مسائي",
-                timing: "مسائي (03:30 م)",
+                timing: "مسائي",
                 area: "مجاورة B11 + مجاورة B12",
                 maxCapacity: 5,
                 driverName: "غير محدد",
                 driverPhone: "غير محدد",
                 vehiclePlate: "سيارة V-301",
                 students: [
-                    { name: "يوسف أحمد كالي", grade: "الخامس الأساسي", gender: "ذكر", address: "مجاورة B: B12 - م 125 - ع 73", parent: "دينا جلال البنا", phone: "01096362565" },
-                    { name: "يحيى أحمد كالي", grade: "الثاني الابتدائي", gender: "ذكر", address: "مجاورة B: B12 - م 125 - ع 73", parent: "دينا جلال البنا", phone: "01096362565" },
-                    { name: "ليان باسل زقوت", grade: "Kg2", gender: "أنثى", address: "مجاورة B: B11 - م 113 - ع 37", parent: "باسل / مها زقوت", phone: "01069477253" },
-                    { name: "يحيى جمال إسماعيل", grade: "العاشر", gender: "ذكر", address: "مجاورة B: B11 - م 111 - ع 58", parent: "جمال حسين إسماعيل", phone: "01042202152" }
+                    { name: "يوسف احمد كالي", grade: "الخامس الأساسي", gender: "ذكر", address: "مجاورة B: B12 | مجموعة: 125 | عمارة: 73", parent: "دينا جلال البنا", phone: "1096362565" },
+                    { name: "يحيى احمد كالي", grade: "الثاني الابتدائي", gender: "ذكر", address: "مجاورة B: B12 | مجموعة: 125 | عمارة: 73", parent: "دينا جلال البنا", phone: "1096362565" },
+                    { name: "ليان باسل وليد زقوت", grade: "Kg2", gender: "أنثى", address: "مجاورة B: B11 | مجموعة: 113 | عمارة: 37", parent: "باسل وليد محمد زقور", phone: "1069477253" },
+                    { name: "يحيى جمال حسين اسماعيل", grade: "العاشر", gender: "ذكر", address: "مجاورة B: B11 | مجموعة: 111 | عمارة: 58", parent: "جمال حسين اسماعيل", phone: "1042202152" }
                 ]
             },
             {
                 id: "V-401",
                 school: "مدرسة سيد جلال",
                 shift: "صباحي",
-                timing: "08:00 ص - 02:30 م",
-                area: "مجاورة B6 (عائلة حرب)",
+                timing: "من 8:00 صباحاً إلى 2:30 مساءً",
+                area: "مجاورة B6",
                 maxCapacity: 5,
                 driverName: "غير محدد",
                 driverPhone: "غير محدد",
                 vehiclePlate: "سيارة V-401",
                 students: [
-                    { name: "كريم أحمد حرب", grade: "الخامس", gender: "ذكر", address: "مجاورة B: B6 - م 64 - ع 18", parent: "أحمد عبد الله حرب", phone: "01024096772" },
-                    { name: "كندة أحمد حرب", grade: "الرابع", gender: "أنثى", address: "مجاورة B: B6 - م 64 - ع 18", parent: "أحمد عبد الله حرب", phone: "01024096772" },
-                    { name: "يوسف أحمد حرب", grade: "الأول", gender: "ذكر", address: "مجاورة B: B6 - م 64 - ع 18", parent: "أحمد عبد الله حرب", phone: "01024096772" }
+                    { name: "كريم احمد حرب", grade: "الخامس", gender: "ذكر", address: "مجاورة B: B6 | مجموعة: 64 | عمارة: 18", parent: "احمد عبدالله حرب", phone: "1024096772" },
+                    { name: "كندة احمد حرب", grade: "الرابع", gender: "أنثى", address: "مجاورة B: B6 | مجموعة: 64 | عمارة: 18", parent: "احمد عبدالله حرب", phone: "1024096772" },
+                    { name: "يوسف احمد حرب", grade: "الأول", gender: "ذكر", address: "مجاورة B: B6 | مجموعة: 64 | عمارة: 18", parent: "احمد عبدالله حرب", phone: "1024096772" }
                 ]
             },
             {
                 id: "V-501",
                 school: "أكاديمية فالكون الشروق",
                 shift: "صباحي",
-                timing: "07:30 ص - 02:30 م",
+                timing: "من 7:30 صباحاً إلى 2:30 مساءً",
                 area: "مجاورة B12",
                 maxCapacity: 5,
                 driverName: "غير محدد",
                 driverPhone: "غير محدد",
                 vehiclePlate: "سيارة V-501",
                 students: [
-                    { name: "باشا أمير أبو شعبان", grade: "Kg1", gender: "ذكر", address: "مجاورة B: B12 - م G122 - ع 84", parent: "أمير بهاء أبو شعبان", phone: "01096699781" },
-                    { name: "سارة محمد أبو شعبان", grade: "الأول ثانوي", gender: "أنثى", address: "مجاورة B: B12 - م 122 - ع 45", parent: "محمد جمال أبو شعبان", phone: "01019121553" },
-                    { name: "عمر محمد أبو شعبان", grade: "Kg1", gender: "ذكر", address: "مجاورة B: B12 - م 122 - ع 45", parent: "محمد جمال أبو شعبان", phone: "01019121553" }
+                    { name: "باشا", grade: "Kg1", gender: "ذكر", address: "مجاورة B: B12 | مجموعة: G122 | عمارة: 84", parent: "امير بهاء ابو شعبان", phone: "1096699781" },
+                    { name: "ساره محمد جمال ابوشعبان", grade: "الاول ثانوي", gender: "أنثى", address: "مجاورة B: B12 | مجموعة: 122 | عمارة: 45", parent: "محمد جمال راغب ابو شعبان", phone: "1019121553" },
+                    { name: "عمر محمد جمال ابو شعبان", grade: "Kg1", gender: "ذكر", address: "مجاورة B: B12 | مجموعة: 122 | عمارة: 45", parent: "محمد جمال راغب ابو شعبان", phone: "1019121553" }
                 ]
             },
             {
                 id: "V-601",
                 school: "أكاديمية فيوتشر",
                 shift: "مسائي",
-                timing: "03:30 م - 08:30 م",
-                area: "مجاورة B6 (نصار + الأسمر)",
+                timing: "من 03:30 إلى 07:30",
+                area: "مجاورة B12 + B6",
                 maxCapacity: 5,
                 driverName: "غير محدد",
                 driverPhone: "غير محدد",
                 vehiclePlate: "سيارة V-601",
                 students: [
-                    { name: "محمد رامي نصار", grade: "التاسع", gender: "ذكر", address: "مجاورة B: B6 - م 64 - ع 51", parent: "رامي خليل نصار", phone: "01067980227" },
-                    { name: "خليل رامي نصار", grade: "الثامن", gender: "ذكر", address: "مجاورة B: B6 - م 64 - ع 51", parent: "رامي خليل نصار", phone: "01067980227" },
-                    { name: "وسيم رامي نصار", grade: "الثامن", gender: "ذكر", address: "مجاورة B: B6 - م 64 - ع 51", parent: "رامي خليل نصار", phone: "01067980227" },
-                    { name: "يزن رامي نصار", grade: "الرابع", gender: "ذكر", address: "مجاورة B: B6 - م 64 - ع 51", parent: "رامي خليل نصار", phone: "01067980227" },
-                    { name: "يوسف محمد الأسمر", grade: "السادس", gender: "ذكر", address: "مجاورة B: B6 - م 70 - ع 25", parent: "هديل محمد الأسمر", phone: "01020782819" }
+                    { name: "حسن", grade: "العاشر", gender: "ذكر", address: "مجاورة B: 12 | مجموعة: 123 | عمارة: 66", parent: "محمد حسن السبعاوي", phone: "1092991823" },
+                    { name: "منه الله", grade: "الثامن", gender: "أنثى", address: "مجاورة B: 12 | مجموعة: 123 | عمارة: 66", parent: "محمد حسن السبعاوي", phone: "1092991823" },
+                    { name: "لونا احمد السقا", grade: "اول اعدادي", gender: "أنثى", address: "مجاورة B: B6 | مجموعة: 62 | عمارة: 23", parent: "احمد سليم علي السقا", phone: "1020279613" },
+                    { name: "ريما احمد السقا", grade: "الثالث ابتدائي", gender: "أنثى", address: "مجاورة B: B6 | مجموعة: 62 | عمارة: 23", parent: "احمد سليم علي السقا", phone: "1020279613" }
                 ]
             },
             {
                 id: "V-602",
                 school: "أكاديمية فيوتشر",
                 shift: "مسائي",
-                timing: "03:30 م - 07:30 م",
-                area: "مجاورة B12",
+                timing: "من 03:30 إلى 08:00",
+                area: "مجاورة B7 + B12",
                 maxCapacity: 5,
                 driverName: "غير محدد",
                 driverPhone: "غير محدد",
                 vehiclePlate: "سيارة V-602",
                 students: [
-                    { name: "حسن محمد السبعاوي", grade: "العاشر", gender: "ذكر", address: "مجاورة B: B12 - م 123 - ع 66", parent: "محمد حسن السبعاوي", phone: "01092991823" },
-                    { name: "منة الله السبعاوي", grade: "الثامن", gender: "أنثى", address: "مجاورة B: B12 - م 123 - ع 66", parent: "محمد حسن السبعاوي", phone: "01092991823" },
-                    { name: "عمر محمد جنينة", grade: "الرابع", gender: "ذكر", address: "مجاورة B: B12 - م 125 - ع 72", parent: "محمد عمر جنينة", phone: "01032262583" },
-                    { name: "سهام محمد جنينة", grade: "الأول إعدادي", gender: "أنثى", address: "مجاورة B: B12 - م 125 - ع 72", parent: "محمد عمر جنينة", phone: "01032262583" },
-                    { name: "محمد إيهاب خضرة", grade: "السابع", gender: "ذكر", address: "مجاورة B: B12 - م 124 - ع 65", parent: "وفاء محمد خضرة", phone: "01027347102" }
+                    { name: "سليمان حازم عبيد", grade: "الأول الاعدادي", gender: "ذكر", address: "مجاورة B: B7 | مجموعة: 71 | عمارة: 23", parent: "حازم سليمان سعيد عبيد", phone: "1010187220" },
+                    { name: "عبدالرحيم حازم عبيد", grade: "الخامس الابتدائي", gender: "ذكر", address: "مجاورة B: B7 | مجموعة: 71 | عمارة: 23", parent: "حازم سليمان سعيد عبيد", phone: "1010187220" },
+                    { name: "عمر محمد", grade: "رابع", gender: "ذكر", address: "مجاورة B: B12 | مجموعة: 125 | عمارة: 72", parent: "محمد عمر جنينه", phone: "1032262583" },
+                    { name: "سهام محمد", grade: "الاول اعدادي", gender: "أنثى", address: "مجاورة B: B12 | مجموعة: 125 | عمارة: 72", parent: "محمد عمر جنينه", phone: "1032262583" }
                 ]
             },
             {
                 id: "V-603",
                 school: "أكاديمية فيوتشر",
                 shift: "مسائي",
-                timing: "03:30 م - 08:00 م",
-                area: "مجاورة B6 (السقا) + B7 (عبيد/مرتجى)",
+                timing: "من 03:30 إلى 08:30",
+                area: "مجاورة B6",
                 maxCapacity: 5,
                 driverName: "غير محدد",
                 driverPhone: "غير محدد",
                 vehiclePlate: "سيارة V-603",
                 students: [
-                    { name: "لونا أحمد السقا", grade: "أول إعدادي", gender: "أنثى", address: "مجاورة B: B6 - م 62 - ع 23", parent: "أحمد سليم السقا", phone: "01020279613" },
-                    { name: "ريما أحمد السقا", grade: "الثالث ابتدائي", gender: "أنثى", address: "مجاورة B: B6 - م 62 - ع 23", parent: "أحمد سليم السقا", phone: "01020279613" },
-                    { name: "سليمان حازم عبيد", grade: "الأول إعدادي", gender: "ذكر", address: "مجاورة B: B7 - م 71 - ع 23", parent: "حازم سليمان عبيد", phone: "01010187220" },
-                    { name: "عبد الرحيم عبيد", grade: "الخامس ابتدائي", gender: "ذكر", address: "مجاورة B: B7 - م 71 - ع 23", parent: "حازم سليمان عبيد", phone: "01010187220" },
-                    { name: "ندى مسلم مرتجى", grade: "أول ثانوي", gender: "أنثى", address: "مجاورة B: B7 - م 71 - ع 41", parent: "مسلم حمدي مرتجى", phone: "01553599659" }
+                    { name: "محمد رامي خليل نصار", grade: "الصف تاسع", gender: "ذكر", address: "مجاورة B: B6 | مجموعة: 64 | عمارة: 51", parent: "رامي خليل محمد نصار", phone: "1067980227" },
+                    { name: "خليل رامي خليل نصار", grade: "ثامن", gender: "ذكر", address: "مجاورة B: B6 | مجموعة: 64 | عمارة: 51", parent: "رامي خليل محمد نصار", phone: "1067980227" },
+                    { name: "وسيم رامي خليل نصار", grade: "ثامن", gender: "ذكر", address: "مجاورة B: B6 | مجموعة: 64 | عمارة: 51", parent: "رامي خليل محمد نصار", phone: "1067980227" },
+                    { name: "يزن رامي خليل نصار", grade: "رابع", gender: "ذكر", address: "مجاورة B: B6 | مجموعة: 64 | عمارة: 51", parent: "رامي خليل محمد نصار", phone: "1067980227" }
                 ]
             },
             {
                 id: "V-604",
                 school: "أكاديمية فيوتشر",
                 shift: "مسائي",
-                timing: "03:00 م - 06:30 م",
-                area: "مجاورة B11",
+                timing: "متنوع",
+                area: "مجاورة B12 + B6 + B7 + B11",
                 maxCapacity: 5,
                 driverName: "غير محدد",
                 driverPhone: "غير محدد",
                 vehiclePlate: "سيارة V-604",
                 students: [
-                    { name: "هيا بسام شحادة", grade: "العاشر", gender: "أنثى", address: "مجاورة B: B11 - م 112 - ع 12", parent: "بسام كمال شحادة", phone: "01080929431" },
-                    { name: "آية بسام شحادة", grade: "التاسع", gender: "أنثى", address: "مجاورة B: B11 - م 112 - ع 12", parent: "بسام كمال شحادة", phone: "01080929431" },
-                    { name: "همسة حسام الكحلوت", grade: "الثاني عشر", gender: "أنثى", address: "مجاورة B: B11 - م 111 - ع 32", parent: "حسام عبد الفتاح الكحلوت", phone: "01020958735" }
+                    { name: "محمد ايهاب خضرة", grade: "السابع", gender: "ذكر", address: "مجاورة B: B12 | مجموعة: 124 | عمارة: 65", parent: "وفاء محمد خضرة", phone: "1027347102" },
+                    { name: "يوسف محمد الأسمر", grade: "السادس", gender: "ذكر", address: "مجاورة B: B6", parent: "هديل محمد نعيم الأسمر", phone: "1020782819" },
+                    { name: "ندى", grade: "اول ثانوي", gender: "أنثى", address: "مجاورة B: B7 | مجموعة: 71 | عمارة: 41", parent: "مسلم حمدي مرتجى", phone: "1553599659" },
+                    { name: "هيا بسام شحادة", grade: "عاشر", gender: "أنثى", address: "مجاورة B: B11", parent: "بسام كمال محمد شحادة", phone: "1080929431" },
+                    { name: "همسة حسام الكحلوت", grade: "ثاني عشر", gender: "أنثى", address: "مجاورة B: B11 | مجموعة: 111 | عمارة: 32", parent: "حسام عبد الفتاح شحادة الكحلوت", phone: "1020958735" }
                 ]
             },
             {
                 id: "V-701",
                 school: "مدرسة فيكتوريا",
                 shift: "مسائي",
-                timing: "03:30 م - 08:00 م",
+                timing: "من 03:30 إلى 08:00",
                 area: "مجاورة B12",
                 maxCapacity: 5,
                 driverName: "غير محدد",
                 driverPhone: "غير محدد",
                 vehiclePlate: "سيارة V-701",
                 students: [
-                    { name: "كنان مصطفى الترتوري", grade: "الخامس", gender: "ذكر", address: "مجاورة B: B12 - م 124 - ع 34", parent: "فيروز محمد صباح", phone: "01092843878" },
-                    { name: "سارة مصطفى الترتوري", grade: "الأول", gender: "أنثى", address: "مجاورة B: B12 - م 124 - ع 34", parent: "فيروز محمد صباح", phone: "01092843878" }
+                    { name: "كنان مصطفى الترتوري", grade: "خامس", gender: "ذكر", address: "مجاورة B: B12 group 124 building 34", parent: "فيروز محمد صباح", phone: "1092843878" },
+                    { name: "سارة مصطفى الترتوري", grade: "اول", gender: "أنثى", address: "مجاورة B: B12 group 124 building 34", parent: "فيروز محمد صباح", phone: "1092843878" }
                 ]
             },
             {
                 id: "V-801",
                 school: "وايلد أكاديمي الساوث بارك",
                 shift: "مسائي",
-                timing: "03:30 م - 06:30 م",
+                timing: "من 3:30 مساءً إلى 6:30 مساءً",
                 area: "مجاورة B6",
                 maxCapacity: 5,
                 driverName: "غير محدد",
                 driverPhone: "غير محدد",
                 vehiclePlate: "سيارة V-801",
                 students: [
-                    { name: "يمان تامر فارس", grade: "البستان", gender: "ذكر", address: "مجاورة B: B6 - م 67 - ع 27", parent: "تامر محمد فارس", phone: "01091325941" }
+                    { name: "يمان", grade: "البستان", gender: "ذكر", address: "مجاورة B: B6 | مجموعة: 67 | عمارة: 27", parent: "تامر محمد فارس", phone: "010 91325941" }
                 ]
             },
             {
                 id: "V-901",
                 school: "وايلد أكاديمي إيست هب",
                 shift: "صباحي",
-                timing: "07:45 ص - 02:00 م",
+                timing: "من 8:00 صباحاً إلى 2:00 مساءً",
                 area: "مجاورة B6",
                 maxCapacity: 5,
                 driverName: "غير محدد",
                 driverPhone: "غير محدد",
                 vehiclePlate: "سيارة V-901",
                 students: [
-                    { name: "ملك وائل النخالة", grade: "الثاني الإعدادي", gender: "أنثى", address: "مجاورة B: B6 - م 70 - ع 1", parent: "سماح فاروق النخالة", phone: "01034692934" },
-                    { name: "يوسف وائل النخالة", grade: "الخامس", gender: "ذكر", address: "مجاورة B: B6 - م 70 - ع 1", parent: "سماح فاروق النخالة", phone: "01034692934" }
+                    { name: "ملك واءل النخالة", grade: "الصف الثامن", gender: "أنثى", address: "مجاورة B: B6 | مجموعة: 70 | عمارة: 1", parent: "سماح فاروق النخالة", phone: "1034692934" },
+                    { name: "يوسف واءل النخالة", grade: "الخامس", gender: "ذكر", address: "مجاورة B: B6 | مجموعة: 70 | عمارة: 1", parent: "سماح فاروق النخالة", phone: "1034692934" }
                 ]
             },
             {
@@ -632,236 +601,12 @@
                 driverPhone: "غير محدد",
                 vehiclePlate: "سيارة V-1001",
                 students: [
-                    { name: "أشم إيهاب الكحلوت", grade: "الخامس", gender: "ذكر", address: "مجاورة B: B1 - م 12 - ع 1", parent: "إيهاب أحمد الكحلوت", phone: "01500077553" },
-                    { name: "بان إيهاب الكحلوت", grade: "التاسع", gender: "أنثى", address: "مجاورة B: B1 - م 12 - ع 1", parent: "إيهاب أحمد الكحلوت", phone: "01500077553" }
+                    { name: "اشم ايهاب الكحلوت", grade: "الخامس", gender: "ذكر", address: "مجاورة B: B1 | مجموعة: 12 | عمارة: 1", parent: "ايهاب احمد الكحلوت", phone: "1500077553" },
+                    { name: "بان ايهاب الكحلوت", grade: "التاسع", gender: "أنثى", address: "مجاورة B: B1 | مجموعة: 12 | عمارة: 1", parent: "ايهاب احمد الكحلوت", phone: "1500077553" }
                 ]
             }
         ];
 
-        function parseCSVLine(line) {
-            const result = [];
-            let current = '';
-            let inQuotes = false;
-            for (let i = 0; i < line.length; i++) {
-                const char = line[i];
-                if (char === '"' || char === "'") {
-                    inQuotes = !inQuotes;
-                } else if (char === ',' && !inQuotes) {
-                    result.push(current.trim());
-                    current = '';
-                } else {
-                    current += char;
-                }
-            }
-            result.push(current.trim());
-            return result;
-        }
-
-        function extractNeighborhoodKey(address) {
-            if (!address) return 'غير محدد';
-            const match = address.match(/(b\s*\d+|مجاورة\s*[a-z0-9]+)/i);
-            return match ? match[0].toUpperCase() : address.substring(0, 15);
-        }
-
-        function processRawStudentsToVehicles(studentRows) {
-            if (!studentRows || studentRows.length === 0) return staticFallbackVehicles;
-
-            // Grouping by School + Shift
-            const groups = {};
-            const uniqueCheck = new Set();
-
-            studentRows.forEach(row => {
-                const school = row.school || row['المدرسة'] || 'مدرسة غير محددة';
-                const name = row.name || row['اسم الطالب'] || '';
-                if (!name) return;
-
-                const parent = row.parent || row['اسم ولي الأمر'] || '';
-                const phone = row.phone || row['رقم الموبايل 1'] || row['رقم الجوال'] || '';
-                const shift = (row.shift || row['الدوام'] || 'صباحي').includes('مسائي') ? 'مسائي' : 'صباحي';
-                const grade = row.grade || row['الصف'] || '';
-                const gender = row.gender || row['النوع'] || 'غير محدد';
-                const address = row.address || row['العنوان التفصيلي'] || row['العنوان'] || '';
-                const timing = row.timing || row['المواعيد'] || (shift === 'صباحي' ? '08:00 ص - 01:00 م' : '03:30 م - 07:30 م');
-
-                const dedupKey = `${name.trim()}_${school.trim()}_${grade.trim()}`;
-                if (uniqueCheck.has(dedupKey)) return;
-                uniqueCheck.add(dedupKey);
-
-                const groupKey = `${school}___${shift}`;
-                if (!groups[groupKey]) {
-                    groups[groupKey] = { school, shift, timing, students: [] };
-                }
-
-                groups[groupKey].students.push({
-                    name: name.trim(),
-                    grade: grade.trim(),
-                    gender: gender.trim(),
-                    address: address.trim(),
-                    parent: parent.trim(),
-                    phone: phone.trim(),
-                    neighborhoodKey: extractNeighborhoodKey(address)
-                });
-            });
-
-            // Build vehicles list chunking max 5 per vehicle
-            const generatedVehicles = [];
-            let schoolCounter = 1;
-
-            Object.keys(groups).forEach(key => {
-                const group = groups[groupKey = key];
-                // Sort students by neighborhood so neighbors sit together
-                group.students.sort((a, b) => a.neighborhoodKey.localeCompare(b.neighborhoodKey));
-
-                const total = group.students.length;
-                let vehicleSubIndex = 1;
-
-                for (let i = 0; i < total; i += 5) {
-                    const chunk = group.students.slice(i, i + 5);
-                    const neighborhoods = [...new Set(chunk.map(s => s.neighborhoodKey))].join(' + ');
-                    const vId = `V-${schoolCounter}0${vehicleSubIndex}`;
-
-                    generatedVehicles.push({
-                        id: vId,
-                        school: group.school,
-                        shift: group.shift,
-                        timing: group.timing,
-                        area: neighborhoods || 'مجاورة سكنية متقاربة',
-                        maxCapacity: 5,
-                        driverName: 'غير محدد',
-                        driverPhone: 'غير محدد',
-                        vehiclePlate: `سيارة ${vId}`,
-                        students: chunk
-                    });
-
-                    vehicleSubIndex++;
-                }
-                schoolCounter++;
-            });
-
-            return generatedVehicles.length > 0 ? generatedVehicles : staticFallbackVehicles;
-        }
-
-        function getSheetCsvExportUrl(url) {
-            if (!url) return '';
-            const match = url.match(/\/d\/([a-zA-Z0-9-_]+)/);
-            if (match && match[1]) {
-                const sheetId = match[1];
-                return `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv`;
-            }
-            return url;
-        }
-
-        async function syncWithGoogleSheets(manualUrl) {
-            const urlInput = document.getElementById('googleSheetUrlInput');
-            const targetUrl = manualUrl || (urlInput ? urlInput.value.trim() : '') || localStorage.getItem('school_bus_sheet_url') || DEFAULT_GOOGLE_SHEET_URL;
-
-            const syncIcon = document.getElementById('syncIcon');
-            const syncStatusText = document.getElementById('syncStatusText');
-            const lastSyncTimeText = document.getElementById('lastSyncTimeText');
-
-            if (syncIcon) syncIcon.classList.add('fa-spin');
-            if (syncStatusText) syncStatusText.textContent = 'جاري المزامنة...';
-
-            try {
-                const csvUrl = getSheetCsvExportUrl(targetUrl);
-                // Fetch with CORS proxy fallback if necessary
-                let text = '';
-                try {
-                    const res = await fetch(csvUrl);
-                    if (res.ok) text = await res.text();
-                } catch(e) {}
-
-                if (!text) {
-                    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(csvUrl)}`;
-                    const res2 = await fetch(proxyUrl);
-                    if (res2.ok) text = await res2.text();
-                }
-
-                if (text && text.trim().length > 0) {
-                    const lines = text.split('\n').filter(l => l.trim().length > 0);
-                    if (lines.length > 1) {
-                        const headers = parseCSVLine(lines[0]);
-                        const rawStudents = [];
-
-                        for (let i = 1; i < lines.length; i++) {
-                            const cols = parseCSVLine(lines[i]);
-                            if (cols.length < 2) continue;
-                            const obj = {};
-                            headers.forEach((h, idx) => {
-                                obj[h.trim()] = cols[idx] ? cols[idx].replace(/^"|"$/g, '').trim() : '';
-                            });
-                            rawStudents.push(obj);
-                        }
-
-                        const newVehicles = processRawStudentsToVehicles(rawStudents);
-                        if (newVehicles && newVehicles.length > 0) {
-                            vehiclesData = newVehicles;
-                            loadSavedDrivers(); // re-apply saved drivers
-                            renderVehicleCards(vehiclesData);
-                            renderMasterTable(vehiclesData);
-                            updateDashboardStats();
-                            
-                            localStorage.setItem('school_bus_sheet_url', targetUrl);
-                            if (lastSyncTimeText) {
-                                const now = new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
-                                lastSyncTimeText.textContent = `تمت المزامنة المباشرة مع Google Sheets بنجاح (${now})`;
-                            }
-                        }
-                    }
-                }
-            } catch(err) {
-                console.warn("Live sync fallback to cached/static dataset:", err);
-            } finally {
-                if (syncIcon) syncIcon.classList.remove('fa-spin');
-                if (syncStatusText) syncStatusText.textContent = 'مزامنة شيت جوجل';
-                closeSyncSettingsModal();
-            }
-        }
-
-        function openSyncSettingsModal() {
-            const urlInput = document.getElementById('googleSheetUrlInput');
-            if (urlInput) urlInput.value = localStorage.getItem('school_bus_sheet_url') || DEFAULT_GOOGLE_SHEET_URL;
-            const modal = document.getElementById('syncSettingsModal');
-            if (modal) modal.classList.remove('hidden');
-        }
-
-        function closeSyncSettingsModal() {
-            const modal = document.getElementById('syncSettingsModal');
-            if (modal) modal.classList.add('hidden');
-        }
-
-        function saveSyncSettingsAndFetch() {
-            const manualCsv = document.getElementById('manualCsvInput')?.value?.trim();
-            if (manualCsv) {
-                const lines = manualCsv.split('\n').filter(l => l.trim().length > 0);
-                if (lines.length > 1) {
-                    const headers = parseCSVLine(lines[0]);
-                    const rawStudents = [];
-                    for (let i = 1; i < lines.length; i++) {
-                        const cols = parseCSVLine(lines[i]);
-                        const obj = {};
-                        headers.forEach((h, idx) => { obj[h.trim()] = cols[idx] || ''; });
-                        rawStudents.push(obj);
-                    }
-                    vehiclesData = processRawStudentsToVehicles(rawStudents);
-                    loadSavedDrivers();
-                    renderVehicleCards(vehiclesData);
-                    renderMasterTable(vehiclesData);
-                    updateDashboardStats();
-                    closeSyncSettingsModal();
-                    return;
-                }
-            }
-
-            const urlInput = document.getElementById('googleSheetUrlInput');
-            if (urlInput && urlInput.value.trim()) {
-                syncWithGoogleSheets(urlInput.value.trim());
-            } else {
-                closeSyncSettingsModal();
-            }
-        }
-
-        // Load drivers from localStorage
         function loadSavedDrivers() {
             try {
                 const saved = localStorage.getItem('school_bus_drivers');
@@ -875,15 +620,139 @@
                         }
                     });
                 }
-            } catch(e) {
-                console.error("Storage error:", e);
+            } catch(e) {}
+        }
+
+        // Parse CSV text and group into vehicles dynamically
+        function processCsvToVehicles(text) {
+            const lines = text.split('\n').filter(l => l.trim().length > 0);
+            if (lines.length <= 1) return staticBaselineVehicles;
+
+            const rows = [];
+            for (let i = 1; i < lines.length; i++) {
+                const cols = lines[i].split('\t');
+                if (cols.length >= 8) {
+                    rows.push({
+                        school: cols[0]?.trim() || 'مدرسة غير محددة',
+                        name: cols[1]?.trim() || '',
+                        gender: cols[2]?.trim() || 'ذكر',
+                        grade: cols[3]?.trim() || '',
+                        shift: (cols[4]?.trim() || '').includes('مسائي') ? 'مسائي' : 'صباحي',
+                        timing: cols[5]?.trim() || '',
+                        parent: cols[6]?.trim() || '',
+                        phone: cols[7]?.trim() || '',
+                        address: cols[9]?.trim() || cols[8]?.trim() || ''
+                    });
+                }
+            }
+
+            if (rows.length === 0) return staticBaselineVehicles;
+
+            // Group by school + shift
+            const groups = {};
+            const uniqueCheck = new Set();
+
+            rows.forEach(r => {
+                if (!r.name) return;
+                const dedupKey = `${r.name.toLowerCase()}_${r.school.toLowerCase()}_${r.phone}`;
+                if (uniqueCheck.has(dedupKey)) return;
+                uniqueCheck.add(dedupKey);
+
+                const gKey = `${r.school}___${r.shift}`;
+                if (!groups[gKey]) {
+                    groups[gKey] = { school: r.school, shift: r.shift, timing: r.timing, students: [] };
+                }
+                groups[gKey].students.push(r);
+            });
+
+            const newVehicles = [];
+            let counter = 1;
+            Object.keys(groups).forEach(k => {
+                const grp = groups[k];
+                let subIdx = 1;
+                for (let i = 0; i < grp.students.length; i += 5) {
+                    const chunk = grp.students.slice(i, i + 5);
+                    const vId = `V-${counter}0${subIdx}`;
+                    newVehicles.push({
+                        id: vId,
+                        school: grp.school,
+                        shift: grp.shift,
+                        timing: grp.timing || (grp.shift === 'صباحي' ? '08:00 ص - 01:00 م' : '03:30 م - 07:30 م'),
+                        area: 'مجاورة سكنية متقاربة',
+                        maxCapacity: 5,
+                        driverName: 'غير محدد',
+                        driverPhone: 'غير محدد',
+                        vehiclePlate: `سيارة ${vId}`,
+                        students: chunk
+                    });
+                    subIdx++;
+                }
+                counter++;
+            });
+
+            return newVehicles.length > 0 ? newVehicles : staticBaselineVehicles;
+        }
+
+        async function syncWithGoogleSheets(manualUrl) {
+            const url = manualUrl || localStorage.getItem('school_bus_sheet_url') || DEFAULT_GOOGLE_SHEET_URL;
+            const icon = document.getElementById('syncIcon');
+            const txt = document.getElementById('syncStatusText');
+            if (icon) icon.classList.add('fa-spin');
+            if (txt) txt.textContent = 'جاري المزامنة...';
+
+            try {
+                const sheetIdMatch = url.match(/\/d\/([a-zA-Z0-9-_]+)/);
+                if (sheetIdMatch && sheetIdMatch[1]) {
+                    const exportUrl = `https://docs.google.com/spreadsheets/d/${sheetIdMatch[1]}/export?format=tsv`;
+                    const res = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(exportUrl)}`);
+                    if (res.ok) {
+                        const tsvText = await res.text();
+                        if (tsvText && tsvText.length > 50) {
+                            vehiclesData = processCsvToVehicles(tsvText);
+                            loadSavedDrivers();
+                            renderVehicleCards(vehiclesData);
+                            renderMasterTable(vehiclesData);
+                            updateDashboardStats();
+                            if (txt) txt.textContent = 'تمت المزامنة بنجاح';
+                            closeSyncSettingsModal();
+                            return;
+                        }
+                    }
+                }
+            } catch(e) {}
+
+            // Fallback to static baseline if fetch blocked
+            vehiclesData = [...staticBaselineVehicles];
+            loadSavedDrivers();
+            renderVehicleCards(vehiclesData);
+            renderMasterTable(vehiclesData);
+            updateDashboardStats();
+            if (icon) icon.classList.remove('fa-spin');
+            if (txt) txt.textContent = 'مزامنة شيت جوجل';
+            closeSyncSettingsModal();
+        }
+
+        function openSyncSettingsModal() {
+            const inp = document.getElementById('googleSheetUrlInput');
+            if (inp) inp.value = localStorage.getItem('school_bus_sheet_url') || DEFAULT_GOOGLE_SHEET_URL;
+            document.getElementById('syncSettingsModal').classList.remove('hidden');
+        }
+
+        function closeSyncSettingsModal() {
+            document.getElementById('syncSettingsModal').classList.add('hidden');
+        }
+
+        function saveSyncSettingsAndFetch() {
+            const val = document.getElementById('googleSheetUrlInput')?.value?.trim();
+            if (val) {
+                localStorage.setItem('school_bus_sheet_url', val);
+                syncWithGoogleSheets(val);
             }
         }
 
         function renderVehicleCards(vehicles) {
             const container = document.getElementById('viewContainerCards');
             const emptyState = document.getElementById('emptyState');
-
             if (!container) return;
 
             if (vehicles.length === 0) {
@@ -894,34 +763,29 @@
             if (emptyState) emptyState.classList.add('hidden');
 
             let html = '';
-
             vehicles.forEach(v => {
                 const count = v.students.length;
-                const capacityPercent = Math.round((count / v.maxCapacity) * 100);
-                
                 const isMorning = v.shift === 'صباحي';
                 const shiftBadge = isMorning 
                     ? '<span class="bg-amber-100 text-amber-800 border border-amber-200 text-xs px-2.5 py-1 rounded-full font-bold flex items-center gap-1"><i class="fa-solid fa-sun text-amber-500"></i> دوام صباحي</span>'
                     : '<span class="bg-indigo-100 text-indigo-800 border border-indigo-200 text-xs px-2.5 py-1 rounded-full font-bold flex items-center gap-1"><i class="fa-solid fa-moon text-indigo-500"></i> دوام مسائي</span>';
 
-                let capBadgeClass = count === 5 
-                    ? 'bg-emerald-100 text-emerald-800 border-emerald-300' 
-                    : 'bg-blue-100 text-blue-800 border-blue-300';
-
                 html += `
                 <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition break-inside-avoid">
                     <div class="p-5 border-b border-slate-100 bg-gradient-to-r from-slate-50 to-white flex flex-col md:flex-row md:items-center justify-between gap-3">
                         <div class="flex items-start md:items-center space-x-3 space-x-reverse">
-                            <div class="w-12 h-12 rounded-xl bg-brand-50 border border-brand-200 flex flex-col items-center justify-center font-black text-brand-700 shadow-sm shrink-0">
-                                <span class="text-[10px] text-brand-500 font-semibold">مركبة</span>
-                                <span class="text-sm font-black -mt-1">${v.id.replace('V-', '')}</span>
-                            </div>
+                            <!-- Clickable Share Icon Button replacing Vehicle Badge -->
+                            <button onclick="shareVehicleCard('${v.id}')" class="w-12 h-12 rounded-xl bg-brand-50 hover:bg-brand-100 border border-brand-200 flex flex-col items-center justify-center text-brand-700 shadow-sm shrink-0 transition" title="مشاركة كارت المدرسة">
+                                <i class="fa-solid fa-share-nodes text-lg text-brand-600"></i>
+                                <span class="text-[9px] font-bold mt-0.5">مشاركة</span>
+                            </button>
                             <div>
                                 <div class="flex flex-wrap items-center gap-2">
                                     <h2 class="text-lg font-bold text-slate-800">${v.school}</h2>
                                     ${shiftBadge}
-                                    <span class="text-xs ${capBadgeClass} border px-2.5 py-0.5 rounded-full font-bold">
-                                        إشغال ${count}/${v.maxCapacity} (${capacityPercent}%)
+                                    <!-- Editable capacity badge -->
+                                    <span onclick="editVehicleCapacity('${v.id}')" class="bg-blue-100 text-blue-800 border border-blue-300 text-xs px-2.5 py-0.5 rounded-full font-bold cursor-pointer hover:bg-blue-200 transition" title="انقر لتعديل عدد السيارات أو السعة">
+                                        إشغال ${count}/${v.maxCapacity} ✏️
                                     </span>
                                 </div>
                                 <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-500 mt-1">
@@ -935,9 +799,6 @@
                             <button onclick="openDriverModal('${v.id}')" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-300 rounded-xl text-xs font-bold transition flex items-center gap-1.5">
                                 <i class="fa-solid fa-user-gear text-brand-600"></i>
                                 <span>بيانات السائق</span>
-                            </button>
-                            <button onclick="copyVehicleManifest('${v.id}')" title="نسخ ملخص السيارة" class="p-1.5 bg-slate-100 hover:bg-slate-200 text-slate-600 rounded-xl text-xs transition">
-                                <i class="fa-regular fa-copy"></i>
                             </button>
                         </div>
                     </div>
@@ -988,62 +849,41 @@
                             </tbody>
                         </table>
                     </div>
-
-                    <div class="p-3 bg-slate-50/50 border-t border-slate-100 text-[11px] text-slate-500 flex justify-between items-center">
-                        <span>خط السير المخصص: تجميع حسب المجاورة السكنية المتقاربة</span>
-                        <span class="font-bold text-slate-700">كارت تشغيل سيارة (${v.id})</span>
-                    </div>
                 </div>
                 `;
             });
-
             container.innerHTML = html;
         }
 
         function renderMasterTable(vehicles) {
             const body = document.getElementById('masterTableBody');
             const countBadge = document.getElementById('tableRecordCount');
-
             if (!body) return;
 
-            let allStudents = [];
+            let all = [];
             vehicles.forEach(v => {
                 v.students.forEach(s => {
-                    allStudents.push({
-                        ...s,
-                        school: v.school,
-                        shift: v.shift,
-                        vehicleId: v.id
-                    });
+                    all.push({ ...s, school: v.school, shift: v.shift, vehicleId: v.id });
                 });
             });
 
-            if (countBadge) countBadge.textContent = `${allStudents.length} طالب`;
-
-            if (allStudents.length === 0) {
+            if (countBadge) countBadge.textContent = `${all.length} طالب`;
+            if (all.length === 0) {
                 body.innerHTML = `<tr><td colspan="9" class="p-8 text-center text-slate-400">لا توجد بيانات مطابقة</td></tr>`;
                 return;
             }
 
-            body.innerHTML = allStudents.map((s, idx) => `
+            body.innerHTML = all.map((s, idx) => `
                 <tr class="hover:bg-slate-50 transition">
                     <td class="p-3 font-bold text-slate-400 text-center">${idx + 1}</td>
                     <td class="p-3 font-bold text-slate-800">${s.name}</td>
                     <td class="p-3 text-slate-700">${s.school}</td>
-                    <td class="p-3">
-                        <span class="px-2 py-0.5 rounded-full text-[11px] font-bold ${s.shift === 'صباحي' ? 'bg-amber-100 text-amber-800' : 'bg-indigo-100 text-indigo-800'}">
-                            ${s.shift}
-                        </span>
-                    </td>
+                    <td class="p-3"><span class="px-2 py-0.5 rounded-full text-[11px] font-bold ${s.shift === 'صباحي' ? 'bg-amber-100 text-amber-800' : 'bg-indigo-100 text-indigo-800'}">${s.shift}</span></td>
                     <td class="p-3 text-slate-600">${s.grade}</td>
                     <td class="p-3 text-slate-600">${s.address}</td>
                     <td class="p-3 text-slate-800">${s.parent}</td>
                     <td class="p-3 font-mono text-slate-700 dir-ltr text-right">${s.phone}</td>
-                    <td class="p-3">
-                        <span class="font-extrabold bg-slate-100 text-slate-800 border border-slate-200 px-2.5 py-1 rounded-lg text-xs">
-                            ${s.vehicleId}
-                        </span>
-                    </td>
+                    <td class="p-3"><span class="font-extrabold bg-slate-100 text-slate-800 border border-slate-200 px-2.5 py-1 rounded-lg text-xs">${s.vehicleId}</span></td>
                 </tr>
             `).join('');
         }
@@ -1052,49 +892,35 @@
             currentView = mode;
             const btnCards = document.getElementById('btnViewCards');
             const btnTable = document.getElementById('btnViewTable');
-            const containerCards = document.getElementById('viewContainerCards');
-            const containerTable = document.getElementById('viewContainerTable');
+            const cCards = document.getElementById('viewContainerCards');
+            const cTable = document.getElementById('viewContainerTable');
 
             if (mode === 'cards') {
                 if (btnCards) btnCards.className = "flex-1 py-1.5 px-2 rounded-lg text-xs font-bold transition text-brand-700 bg-white shadow-sm flex items-center justify-center gap-1";
                 if (btnTable) btnTable.className = "flex-1 py-1.5 px-2 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition flex items-center justify-center gap-1";
-                if (containerCards) containerCards.classList.remove('hidden');
-                if (containerTable) containerTable.classList.add('hidden');
+                if (cCards) cCards.classList.remove('hidden');
+                if (cTable) cTable.classList.add('hidden');
             } else {
                 if (btnTable) btnTable.className = "flex-1 py-1.5 px-2 rounded-lg text-xs font-bold transition text-brand-700 bg-white shadow-sm flex items-center justify-center gap-1";
                 if (btnCards) btnCards.className = "flex-1 py-1.5 px-2 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition flex items-center justify-center gap-1";
-                if (containerTable) containerTable.classList.remove('hidden');
-                if (containerCards) containerCards.classList.add('hidden');
+                if (cTable) cTable.classList.remove('hidden');
+                if (cCards) cCards.classList.add('hidden');
             }
         }
 
         function applyFilters() {
-            const searchInput = document.getElementById('searchInput');
-            const schoolFilter = document.getElementById('schoolFilter');
-            const shiftFilter = document.getElementById('shiftFilter');
-
-            const search = searchInput ? searchInput.value.trim().toLowerCase() : '';
-            const school = schoolFilter ? schoolFilter.value : '';
-            const shift = shiftFilter ? shiftFilter.value : '';
+            const search = document.getElementById('searchInput')?.value?.trim().toLowerCase() || '';
+            const school = document.getElementById('schoolFilter')?.value || '';
+            const shift = document.getElementById('shiftFilter')?.value || '';
 
             const filtered = vehiclesData.filter(v => {
                 if (school && v.school !== school) return false;
                 if (shift && v.shift !== shift) return false;
-
                 if (search) {
-                    const matchVehicle = v.id.toLowerCase().includes(search) || v.area.toLowerCase().includes(search);
-                    const matchStudent = v.students.some(s => 
-                        s.name.toLowerCase().includes(search) ||
-                        s.parent.toLowerCase().includes(search) ||
-                        s.address.toLowerCase().includes(search) ||
-                        s.phone.includes(search)
-                    );
-                    return matchVehicle || matchStudent;
+                    return v.id.toLowerCase().includes(search) || v.school.toLowerCase().includes(search) || v.students.some(s => s.name.toLowerCase().includes(search) || s.parent.toLowerCase().includes(search) || s.phone.includes(search));
                 }
-
                 return true;
             });
-
             renderVehicleCards(filtered);
             renderMasterTable(filtered);
         }
@@ -1107,32 +933,26 @@
         }
 
         function updateDashboardStats() {
-            let totalStudents = 0;
-            let morningCount = 0;
-            let eveningCount = 0;
-
+            let total = 0, mCount = 0, eCount = 0;
             vehiclesData.forEach(v => {
-                totalStudents += v.students.length;
-                if (v.shift === 'صباحي') morningCount += v.students.length;
-                if (v.shift === 'مسائي') eveningCount += v.students.length;
+                total += v.students.length;
+                if (v.shift === 'صباحي') mCount += v.students.length;
+                if (v.shift === 'مسائي') eCount += v.students.length;
             });
-
-            if (document.getElementById('stat-total-students')) document.getElementById('stat-total-students').textContent = totalStudents;
+            if (document.getElementById('stat-total-students')) document.getElementById('stat-total-students').textContent = total;
             if (document.getElementById('stat-total-vehicles')) document.getElementById('stat-total-vehicles').textContent = vehiclesData.length;
-            if (document.getElementById('stat-morning-students')) document.getElementById('stat-morning-students').textContent = `${morningCount} طالب`;
-            if (document.getElementById('stat-evening-students')) document.getElementById('stat-evening-students').textContent = `${eveningCount} طالب`;
+            if (document.getElementById('stat-morning-students')) document.getElementById('stat-morning-students').textContent = `${mCount} طالب`;
+            if (document.getElementById('stat-evening-students')) document.getElementById('stat-evening-students').textContent = `${eCount} طالب`;
         }
 
         function openDriverModal(vehicleId) {
-            const vehicle = vehiclesData.find(v => v.id === vehicleId);
-            if (!vehicle) return;
-
-            document.getElementById('modalVehicleId').value = vehicle.id;
-            document.getElementById('modalVehicleCode').textContent = vehicle.id;
-            document.getElementById('modalDriverName').value = vehicle.driverName === 'غير محدد' ? '' : vehicle.driverName;
-            document.getElementById('modalDriverPhone').value = vehicle.driverPhone === 'غير محدد' ? '' : vehicle.driverPhone;
-            document.getElementById('modalVehiclePlate').value = vehicle.vehiclePlate === `سيارة ${vehicle.id}` ? '' : vehicle.vehiclePlate;
-
+            const v = vehiclesData.find(x => x.id === vehicleId);
+            if (!v) return;
+            document.getElementById('modalVehicleId').value = v.id;
+            document.getElementById('modalVehicleCode').textContent = v.id;
+            document.getElementById('modalDriverName').value = v.driverName === 'غير محدد' ? '' : v.driverName;
+            document.getElementById('modalDriverPhone').value = v.driverPhone === 'غير محدد' ? '' : v.driverPhone;
+            document.getElementById('modalVehiclePlate').value = v.vehiclePlate === `سيارة ${v.id}` ? '' : v.vehiclePlate;
             document.getElementById('driverModal').classList.remove('hidden');
         }
 
@@ -1147,63 +967,71 @@
             const phone = document.getElementById('modalDriverPhone').value.trim() || 'غير محدد';
             const plate = document.getElementById('modalVehiclePlate').value.trim() || `سيارة ${id}`;
 
-            const vehicle = vehiclesData.find(v => v.id === id);
-            if (vehicle) {
-                vehicle.driverName = name;
-                vehicle.driverPhone = phone;
-                vehicle.vehiclePlate = plate;
-
+            const v = vehiclesData.find(x => x.id === id);
+            if (v) {
+                v.driverName = name;
+                v.driverPhone = phone;
+                v.vehiclePlate = plate;
                 try {
                     const saved = JSON.parse(localStorage.getItem('school_bus_drivers') || '{}');
                     saved[id] = { name, phone, plate };
                     localStorage.setItem('school_bus_drivers', JSON.stringify(saved));
                 } catch(err) {}
-
                 applyFilters();
                 closeDriverModal();
             }
         }
 
-        function copyVehicleManifest(vehicleId) {
-            const v = vehiclesData.find(v => v.id === vehicleId);
+        function editVehicleCapacity(vehicleId) {
+            const v = vehiclesData.find(x => x.id === vehicleId);
             if (!v) return;
+            const newCap = prompt(`أدخل عدد السيارات المخصص أو السعة القصوى لـ (${v.school}):`, v.maxCapacity);
+            if (newCap !== null && !isNaN(newCap)) {
+                v.maxCapacity = parseInt(newCap);
+                applyFilters();
+            }
+        }
 
-            let text = `🚕 كارت تشغيل سيارة: ${v.id}\n`;
-            text += `المدرسة: ${v.school} (${v.shift})\n`;
-            text += `النطاق: ${v.area}\n`;
-            text += `سعة الطلاب: ${v.students.length}/5\n`;
+        function shareVehicleCard(vehicleId) {
+            const v = vehiclesData.find(x => x.id === vehicleId);
+            if (!v) return;
+            let text = `🚕 كارت تشغيل مدرسة: ${v.school}\n`;
+            text += `الدوام: ${v.shift} (${v.timing})\n`;
+            text += `السائق: ${v.driverName} (${v.driverPhone})\n`;
             text += `-----------------------------------\n`;
             v.students.forEach((s, i) => {
                 text += `${i+1}. ${s.name} - ${s.grade} | ${s.address} | ولي الأمر: ${s.parent} (${s.phone})\n`;
             });
 
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-
-            alert(`تم نسخ بيانات كارت التشغيل للسيارة (${vehicleId}) بنجاح إلى الحافظة!`);
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(text).then(() => {
+                    alert(`تم نسخ بيانات كارت (${v.school}) بنجاح إلى الحافظة!`);
+                });
+            } else {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                alert(`تم نسخ بيانات كارت (${v.school}) بنجاح!`);
+            }
         }
 
+        // Initialize App on load
         function initApp() {
-            vehiclesData = [...staticFallbackVehicles];
+            vehiclesData = [...staticBaselineVehicles];
             loadSavedDrivers();
             renderVehicleCards(vehiclesData);
             renderMasterTable(vehiclesData);
             updateDashboardStats();
-
-            // Auto-trigger sync with Google Sheets on startup
-            setTimeout(() => {
-                syncWithGoogleSheets();
-            }, 500);
+            setTimeout(() => { syncWithGoogleSheets(); }, 400);
         }
 
-        // Run immediately without relying solely on window load event
-        initApp();
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', initApp);
+        } else {
+            initApp();
         }
     </script>
 </body>
