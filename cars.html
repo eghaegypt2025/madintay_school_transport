@@ -109,24 +109,9 @@
                 </div>
 
                 <div class="flex flex-wrap items-center gap-2">
-                    <button onclick="syncWithGoogleSheets()" id="btnSyncSheets" class="bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 px-3.5 py-2.5 rounded-xl font-bold text-sm transition flex items-center gap-2 shadow-sm">
-                        <i class="fa-solid fa-arrows-rotate text-amber-400" id="syncIcon"></i>
-                        <span id="syncStatusText">مزامنة شيت جوجل</span>
-                    </button>
-                    <button onclick="openAppsScriptModal()" class="bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 border border-emerald-500/40 px-3.5 py-2.5 rounded-xl font-bold text-sm transition flex items-center gap-2 shadow-sm" title="ربط التعديلات المباشرة بشيت جوجل">
-                        <i class="fa-solid fa-cloud-arrow-up text-emerald-400"></i>
-                        <span>ربط الحفظ الآلي</span>
-                    </button>
-                    <button onclick="openSyncSettingsModal()" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 p-2.5 rounded-xl text-sm transition" title="إعدادات المزامنة والرابط">
-                        <i class="fa-solid fa-gear text-amber-400"></i>
-                    </button>
-                    <button onclick="window.print()" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 px-4 py-2.5 rounded-xl font-medium text-sm transition flex items-center gap-2 shadow-sm">
-                        <i class="fa-solid fa-print text-amber-400"></i>
-                        <span>طباعة الكشوفات</span>
-                    </button>
-                    <button onclick="resetFilters()" class="bg-blue-600/50 hover:bg-blue-600 text-white px-4 py-2.5 rounded-xl font-medium text-sm transition flex items-center gap-2 border border-blue-400/30">
+                    <button onclick="resetFilters()" class="bg-blue-600/50 hover:bg-blue-600 text-white px-4 py-2.5 rounded-xl font-medium text-sm transition flex items-center gap-2 border border-blue-400/30 shadow-sm">
                         <i class="fa-solid fa-rotate-left"></i>
-                        <span>إعادة ضبط</span>
+                        <span>إعادة ضبط التصفية</span>
                     </button>
                 </div>
             </div>
@@ -136,7 +121,6 @@
                     <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                     <span id="lastSyncTimeText">المزامنة التلقائية مفعّلة مع ملف Google Sheets الحقيقي</span>
                 </span>
-                <span class="text-[11px] text-emerald-300 cursor-pointer underline" onclick="openSyncSettingsModal()">تغيير الرابط</span>
             </div>
 
             <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-3 mt-6 pt-6 border-t border-white/10">
@@ -343,62 +327,6 @@
         </div>
     </div>
 
-    <div id="syncSettingsModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 no-print">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all">
-            <div class="bg-slate-900 text-white p-4 flex items-center justify-between">
-                <div class="flex items-center space-x-2 space-x-reverse">
-                    <i class="fa-solid fa-file-excel text-emerald-400"></i>
-                    <h3 class="font-bold text-base">إعدادات المزامنة المباشرة مع Google Sheets</h3>
-                </div>
-                <button onclick="closeSyncSettingsModal()" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-            
-            <div class="p-5 space-y-4 text-xs text-slate-700">
-                <div>
-                    <label class="block text-xs font-bold text-slate-800 mb-1">رابط Google Sheets المباشر:</label>
-                    <input type="url" id="googleSheetUrlInput" class="w-full px-3 py-2 border border-slate-300 rounded-xl text-xs font-mono focus:ring-2 focus:ring-brand-500 outline-none dir-ltr" placeholder="https://docs.google.com/spreadsheets/d/...">
-                </div>
-                <div class="pt-2 flex gap-2">
-                    <button onclick="saveSyncSettingsAndFetch()" class="flex-1 bg-brand-600 hover:bg-brand-700 text-white py-2.5 rounded-xl font-bold transition">حفظ ومزامنة الآن</button>
-                    <button onclick="closeSyncSettingsModal()" class="px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-semibold">إلغاء</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="appsScriptModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 no-print">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all">
-            <div class="bg-emerald-900 text-white p-4 flex items-center justify-between">
-                <div class="flex items-center space-x-2 space-x-reverse">
-                    <i class="fa-solid fa-cloud-arrow-up text-emerald-400 text-lg"></i>
-                    <h3 class="font-bold text-base">تفعيل التعديل التلقائي لملف Google Sheets</h3>
-                </div>
-                <button onclick="closeAppsScriptModal()" class="text-emerald-300 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-            
-            <div class="p-5 space-y-4 text-xs text-slate-700">
-                <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-emerald-900 space-y-1">
-                    <strong class="font-bold block">كيف يتم إنشاء شيت السائقين وحذف الطلاب تلقائياً؟</strong>
-                    <p class="text-[11px] leading-relaxed">بسبب حماية متصفح جوجل، للتعديل المباشر على الشيت (إنشاء تبويب "بيانات السائقين" أو حذف الصفوف) اضغط على زر نسخ السكريبت المرفق وضعه في قائمة <code>Extensions ➔ Apps Script</code> في شيت جوجل لمرة واحدة فقط.</p>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-bold text-slate-800 mb-1">رابط تطبيق Google Apps Script WebApp (إن وجد):</label>
-                    <input type="url" id="appsScriptUrlInput" class="w-full px-3 py-2 border border-slate-300 rounded-xl text-xs font-mono focus:ring-2 focus:ring-emerald-500 outline-none dir-ltr" placeholder="https://script.google.com/macros/s/.../exec">
-                </div>
-
-                <div class="pt-2 flex flex-col sm:flex-row gap-2">
-                    <button onclick="copyAppsScriptCode()" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-bold transition flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-copy"></i>
-                        <span>نسخ كود السكريبت التلقائي</span>
-                    </button>
-                    <button onclick="saveAppsScriptUrl()" class="px-4 bg-slate-800 hover:bg-slate-900 text-white rounded-xl font-bold transition">حفظ الرابط</button>
-                    <button onclick="closeAppsScriptModal()" class="px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-semibold">إغلاق</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800 no-print">
         <div class="max-w-7xl mx-auto px-4 text-center text-sm flex flex-col sm:flex-row justify-between items-center gap-3">
             <div>
@@ -412,7 +340,13 @@
     </footer>
 
     <script>
+        // -------------------------------------------------------------------------
+        // ⚙️ إعدادات الروابط الثابتة (قم بوضع رابط التطبيق الخاص بك هنا)
+        // -------------------------------------------------------------------------
         const DEFAULT_GOOGLE_SHEET_URL = "https://docs.google.com/spreadsheets/d/1anfwfgGUF0ezlrnwA4MTxmjNSzEUWJGv0ttWaPajiAo/edit?usp=sharing";
+        
+        // رابط Google Apps Script (Web App URL) للربط التلقائي للحفظ والحذف
+        const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKMOGRWtpLgvsE_rgudcY_PQoh5tH2r1AjTYSKk1Tu7qu28cRCpXFYlvH3PlSyreGtVw/exec"; 
         
         let vehiclesData = [];
         let currentView = 'cards';
@@ -1017,7 +951,7 @@
             if (!v || !v.students[studentIndex]) return;
             
             const studentName = v.students[studentIndex].name;
-            if (confirm(`هل أنت تأكد من إزالة الطالب (${studentName}) من الكشف؟`)) {
+            if (confirm(`هل أنت متأكد من إزالة الطالب (${studentName}) من الكشف؟`)) {
                 v.students.splice(studentIndex, 1);
                 if (v.students.length === 0) {
                     vehiclesData = vehiclesData.filter(x => x.id !== vehicleId);
@@ -1025,10 +959,9 @@
                 applyFilters();
                 updateDashboardStats();
 
-                // WebApp Sync Trigger if AppScript URL is bound
-                const appsScriptUrl = localStorage.getItem('school_bus_appscript_url');
-                if (appsScriptUrl) {
-                    fetch(appsScriptUrl, {
+                // إرسال أمر الحذف إلى Google Apps Script
+                if (APPS_SCRIPT_URL && APPS_SCRIPT_URL !== "ضع_رابط_التطبيق_هنا") {
+                    fetch(APPS_SCRIPT_URL, {
                         method: 'POST',
                         mode: 'no-cors',
                         headers: { 'Content-Type': 'application/json' },
@@ -1071,10 +1004,9 @@
                     localStorage.setItem('school_bus_drivers', JSON.stringify(saved));
                 } catch(err) {}
 
-                // Send to Google Apps Script if URL provided
-                const appsScriptUrl = localStorage.getItem('school_bus_appscript_url');
-                if (appsScriptUrl) {
-                    fetch(appsScriptUrl, {
+                // إرسال التحديث إلى Google Apps Script
+                if (APPS_SCRIPT_URL && APPS_SCRIPT_URL !== "ضع_رابط_التطبيق_هنا") {
+                    fetch(APPS_SCRIPT_URL, {
                         method: 'POST',
                         mode: 'no-cors',
                         headers: { 'Content-Type': 'application/json' },
@@ -1099,63 +1031,6 @@
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-        }
-
-        function openSyncSettingsModal() {
-            const inp = document.getElementById('googleSheetUrlInput');
-            if (inp) inp.value = localStorage.getItem('school_bus_sheet_url') || DEFAULT_GOOGLE_SHEET_URL;
-            document.getElementById('syncSettingsModal').classList.remove('hidden');
-        }
-
-        function closeSyncSettingsModal() {
-            document.getElementById('syncSettingsModal').classList.add('hidden');
-        }
-
-        function saveSyncSettingsAndFetch() {
-            const val = document.getElementById('googleSheetUrlInput')?.value?.trim();
-            if (val) {
-                localStorage.setItem('school_bus_sheet_url', val);
-                syncWithGoogleSheets(val);
-            }
-        }
-
-        function openAppsScriptModal() {
-            const inp = document.getElementById('appsScriptUrlInput');
-            if (inp) inp.value = localStorage.getItem('school_bus_appscript_url') || '';
-            document.getElementById('appsScriptModal').classList.remove('hidden');
-        }
-
-        function closeAppsScriptModal() {
-            document.getElementById('appsScriptModal').classList.add('hidden');
-        }
-
-        function saveAppsScriptUrl() {
-            const val = document.getElementById('appsScriptUrlInput')?.value?.trim();
-            if (val) {
-                localStorage.setItem('school_bus_appscript_url', val);
-                alert('تم حفظ رابط Apps Script بنجاح! سيتم إرسال السائقين والحذف تلقائياً للشيت.');
-            }
-            closeAppsScriptModal();
-        }
-
-        function copyAppsScriptCode() {
-            const code = `function doPost(e) {
-  var ss = SpreadsheetApp.getActiveSpreadsheet();
-  var data = JSON.parse(e.postData.contents);
-  if (data.action === 'save_driver') {
-    var sheet = ss.getSheetByName('بيانات السائقين');
-    if (!sheet) {
-      sheet = ss.insertSheet('بيانات السائقين');
-      sheet.appendRow(['رقم السيارة', 'المدرسة', 'الدوام', 'اسم السائق', 'رقم الجوال', 'رقم اللوحة']);
-    }
-    sheet.appendRow([data.vehicleId, data.school, data.shift, data.driverName, data.driverPhone, data.vehiclePlate]);
-  }
-  return ContentService.createTextOutput('Success');
-}`;
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(code);
-                alert('تم نسخ كود Google Apps Script إلى الحافظة!');
-            }
         }
 
         function shareVehicleCard(vehicleId) {
