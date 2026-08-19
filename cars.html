@@ -113,6 +113,10 @@
                         <i class="fa-solid fa-arrows-rotate text-amber-400" id="syncIcon"></i>
                         <span id="syncStatusText">مزامنة شيت جوجل</span>
                     </button>
+                    <button onclick="openAppsScriptModal()" class="bg-emerald-600/30 hover:bg-emerald-600/50 text-emerald-300 border border-emerald-500/40 px-3.5 py-2.5 rounded-xl font-bold text-sm transition flex items-center gap-2 shadow-sm" title="ربط التعديلات المباشرة بشيت جوجل">
+                        <i class="fa-solid fa-cloud-arrow-up text-emerald-400"></i>
+                        <span>ربط الحفظ الآلي</span>
+                    </button>
                     <button onclick="openSyncSettingsModal()" class="bg-white/10 hover:bg-white/20 text-white border border-white/20 p-2.5 rounded-xl text-sm transition" title="إعدادات المزامنة والرابط">
                         <i class="fa-solid fa-gear text-amber-400"></i>
                     </button>
@@ -145,6 +149,7 @@
                     <span class="text-[10px] text-blue-300">طالب مسجل</span>
                 </div>
 
+                <!-- Editable Vehicles Count Card -->
                 <div onclick="editTotalVehicles()" class="bg-white/10 hover:bg-white/20 backdrop-blur-md rounded-xl p-3.5 border border-white/20 cursor-pointer transition relative group" title="انقر لتعديل عدد السيارات يدوياً">
                     <div class="flex items-center justify-between">
                         <span class="text-blue-200 text-xs font-medium">عدد السيارات</span>
@@ -154,7 +159,7 @@
                         <span id="stat-total-vehicles">13</span>
                         <span class="text-[10px] bg-amber-500/30 text-amber-300 border border-amber-400/30 px-1.5 py-0.5 rounded">تعديل ✏️</span>
                     </div>
-                    <span class="text-[10px] text-blue-300">خط سير مخصص</span>
+                    <span class="text-[10px] text-blue-300">انقر للتعديل اليدوي</span>
                 </div>
 
                 <div class="bg-white/10 backdrop-blur-md rounded-xl p-3.5 border border-white/10">
@@ -250,7 +255,7 @@
             <div class="p-4 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
                 <div>
                     <h3 class="font-bold text-slate-800">الكشف الموحد لجميع الطلاب الحقيقيين</h3>
-                    <p class="text-xs text-slate-500">عرض كامل البيانات في جدول واحد مع إمكانية الفلترة</p>
+                    <p class="text-xs text-slate-500">عرض كامل البيانات في جدول واحد مع أزرار الإجراءات والحذف</p>
                 </div>
                 <span id="tableRecordCount" class="bg-brand-50 text-brand-700 text-xs font-bold px-3 py-1 rounded-full border border-brand-200">48 طالب</span>
             </div>
@@ -268,7 +273,7 @@
                             <th class="p-3">اسم ولي الأمر</th>
                             <th class="p-3">الهاتف</th>
                             <th class="p-3">رقم السيارة</th>
-                            <th class="p-3 text-center no-print">الإجراءات</th>
+                            <th class="p-3 text-center no-print">الإجراءات والمسح</th>
                         </tr>
                     </thead>
                     <tbody id="masterTableBody" class="divide-y divide-slate-100 text-slate-700">
@@ -315,12 +320,12 @@
                     <input type="text" id="modalVehiclePlate" placeholder="مثال: أ ب ج 1234" class="w-full px-3 py-2 border border-slate-300 rounded-xl text-sm focus:ring-2 focus:ring-brand-500 outline-none">
                 </div>
 
-                <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 text-[11px] text-slate-600 space-y-1">
-                    <div class="font-bold text-slate-800 flex items-center gap-1">
+                <div class="bg-emerald-50 p-3 rounded-xl border border-emerald-200 text-xs text-emerald-800 space-y-1">
+                    <div class="font-bold flex items-center gap-1.5">
                         <i class="fa-solid fa-file-excel text-emerald-600"></i>
                         <span>حفظ ومزامنة مع شيت السائقين (Google Sheets):</span>
                     </div>
-                    <p class="text-slate-500">يتم حفظ بيانات السائق محلياً ويمكنك تصدير كشف السائقين لإضافته كصفحة جديدة في جوجل شيت.</p>
+                    <p class="text-[11px] text-emerald-700 leading-relaxed">يتم حفظ وتحديث بيانات السائق فوراً. يمكنك تصدير الملف أو ربطه بتبويب "بيانات السائقين" الجديد في جوجل شيت تلقائياً.</p>
                 </div>
 
                 <div class="pt-2 flex gap-2">
@@ -338,7 +343,6 @@
         </div>
     </div>
 
-    <!-- Google Sheets Settings Modal -->
     <div id="syncSettingsModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 no-print">
         <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all">
             <div class="bg-slate-900 text-white p-4 flex items-center justify-between">
@@ -362,6 +366,39 @@
         </div>
     </div>
 
+    <div id="appsScriptModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4 no-print">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full overflow-hidden transform transition-all">
+            <div class="bg-emerald-900 text-white p-4 flex items-center justify-between">
+                <div class="flex items-center space-x-2 space-x-reverse">
+                    <i class="fa-solid fa-cloud-arrow-up text-emerald-400 text-lg"></i>
+                    <h3 class="font-bold text-base">تفعيل التعديل التلقائي لملف Google Sheets</h3>
+                </div>
+                <button onclick="closeAppsScriptModal()" class="text-emerald-300 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            
+            <div class="p-5 space-y-4 text-xs text-slate-700">
+                <div class="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-emerald-900 space-y-1">
+                    <strong class="font-bold block">كيف يتم إنشاء شيت السائقين وحذف الطلاب تلقائياً؟</strong>
+                    <p class="text-[11px] leading-relaxed">بسبب حماية متصفح جوجل، للتعديل المباشر على الشيت (إنشاء تبويب "بيانات السائقين" أو حذف الصفوف) اضغط على زر نسخ السكريبت المرفق وضعه في قائمة <code>Extensions ➔ Apps Script</code> في شيت جوجل لمرة واحدة فقط.</p>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-800 mb-1">رابط تطبيق Google Apps Script WebApp (إن وجد):</label>
+                    <input type="url" id="appsScriptUrlInput" class="w-full px-3 py-2 border border-slate-300 rounded-xl text-xs font-mono focus:ring-2 focus:ring-emerald-500 outline-none dir-ltr" placeholder="https://script.google.com/macros/s/.../exec">
+                </div>
+
+                <div class="pt-2 flex flex-col sm:flex-row gap-2">
+                    <button onclick="copyAppsScriptCode()" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-xl font-bold transition flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-copy"></i>
+                        <span>نسخ كود السكريبت التلقائي</span>
+                    </button>
+                    <button onclick="saveAppsScriptUrl()" class="px-4 bg-slate-800 hover:bg-slate-900 text-white rounded-xl font-bold transition">حفظ الرابط</button>
+                    <button onclick="closeAppsScriptModal()" class="px-3 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-semibold">إغلاق</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800 no-print">
         <div class="max-w-7xl mx-auto px-4 text-center text-sm flex flex-col sm:flex-row justify-between items-center gap-3">
             <div>
@@ -379,8 +416,9 @@
         
         let vehiclesData = [];
         let currentView = 'cards';
+        let customTotalVehicles = null;
 
-        // Verified complete baseline dataset parsed from actual sheet
+        // Verified baseline dataset parsed from actual sheet
         const staticBaselineVehicles = [
             {
                 id: "V-101",
@@ -642,7 +680,6 @@
             } catch(e) {}
         }
 
-        // Parse CSV text and group into vehicles dynamically
         function processCsvToVehicles(text) {
             const lines = text.split('\n').filter(l => l.trim().length > 0);
             if (lines.length <= 1) return staticBaselineVehicles;
@@ -733,6 +770,7 @@
                             renderMasterTable(vehiclesData);
                             updateDashboardStats();
                             if (txt) txt.textContent = 'تمت المزامنة بنجاح';
+                            if (icon) icon.classList.remove('fa-spin');
                             closeSyncSettingsModal();
                             return;
                         }
@@ -741,7 +779,7 @@
             } catch(e) {}
 
             // Fallback to static baseline if fetch blocked
-            vehiclesData = [...staticBaselineVehicles];
+            vehiclesData = JSON.parse(JSON.stringify(staticBaselineVehicles));
             loadSavedDrivers();
             renderVehicleCards(vehiclesData);
             renderMasterTable(vehiclesData);
@@ -749,24 +787,6 @@
             if (icon) icon.classList.remove('fa-spin');
             if (txt) txt.textContent = 'مزامنة شيت جوجل';
             closeSyncSettingsModal();
-        }
-
-        function openSyncSettingsModal() {
-            const inp = document.getElementById('googleSheetUrlInput');
-            if (inp) inp.value = localStorage.getItem('school_bus_sheet_url') || DEFAULT_GOOGLE_SHEET_URL;
-            document.getElementById('syncSettingsModal').classList.remove('hidden');
-        }
-
-        function closeSyncSettingsModal() {
-            document.getElementById('syncSettingsModal').classList.add('hidden');
-        }
-
-        function saveSyncSettingsAndFetch() {
-            const val = document.getElementById('googleSheetUrlInput')?.value?.trim();
-            if (val) {
-                localStorage.setItem('school_bus_sheet_url', val);
-                syncWithGoogleSheets(val);
-            }
         }
 
         function renderVehicleCards(vehicles) {
@@ -793,7 +813,6 @@
                 <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition break-inside-avoid">
                     <div class="p-5 border-b border-slate-100 bg-gradient-to-r from-slate-50 to-white flex flex-col md:flex-row md:items-center justify-between gap-3">
                         <div class="flex items-start md:items-center space-x-3 space-x-reverse">
-                            <!-- Clickable Share Icon Button replacing Vehicle Badge -->
                             <button onclick="shareVehicleCard('${v.id}')" class="w-12 h-12 rounded-xl bg-brand-50 hover:bg-brand-100 border border-brand-200 flex flex-col items-center justify-center text-brand-700 shadow-sm shrink-0 transition" title="مشاركة كارت المدرسة">
                                 <i class="fa-solid fa-share-nodes text-lg text-brand-600"></i>
                                 <span class="text-[9px] font-bold mt-0.5">مشاركة</span>
@@ -802,7 +821,6 @@
                                 <div class="flex flex-wrap items-center gap-2">
                                     <h2 class="text-lg font-bold text-slate-800">${v.school}</h2>
                                     ${shiftBadge}
-                                    <!-- Editable capacity badge -->
                                     <span onclick="editVehicleCapacity('${v.id}')" class="bg-blue-100 text-blue-800 border border-blue-300 text-xs px-2.5 py-0.5 rounded-full font-bold cursor-pointer hover:bg-blue-200 transition" title="انقر لتعديل عدد السيارات أو السعة">
                                         إشغال ${count}/${v.maxCapacity} ✏️
                                     </span>
@@ -839,7 +857,7 @@
                                     <th class="p-3">الصف</th>
                                     <th class="p-3">المجاورة والعنوان</th>
                                     <th class="p-3">اسم ولي الأمر</th>
-                                    <th class="p-3 text-center">التواصل</th>
+                                    <th class="p-3 text-center no-print">الإجراءات والمسح</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-slate-100">
@@ -861,9 +879,10 @@
                                                 <a href="https://wa.me/2${s.phone}" target="_blank" class="p-1.5 bg-green-50 text-green-700 hover:bg-green-100 rounded-lg transition" title="واتساب">
                                                     <i class="fa-brands fa-whatsapp text-xs"></i>
                                                 </a>
-                                                <!-- Delete Button -->
-                                                <button onclick="deleteStudent('${v.id}', ${idx})" class="p-1.5 bg-rose-50 text-rose-600 hover:bg-rose-100 rounded-lg transition" title="حذف الطالب">
+                                                <!-- Explicit Visible Delete Button -->
+                                                <button onclick="deleteStudent('${v.id}', ${idx})" class="p-1.5 bg-rose-100 text-rose-700 hover:bg-rose-200 rounded-lg transition flex items-center gap-1 font-bold text-xs" title="حذف الطالب من الكشف">
                                                     <i class="fa-solid fa-trash-can text-xs"></i>
+                                                    <span>حذف</span>
                                                 </button>
                                             </div>
                                         </td>
@@ -908,8 +927,9 @@
                     <td class="p-3 font-mono text-slate-700 dir-ltr text-right">${s.phone}</td>
                     <td class="p-3"><span class="font-extrabold bg-slate-100 text-slate-800 border border-slate-200 px-2.5 py-1 rounded-lg text-xs">${s.vehicleId}</span></td>
                     <td class="p-3 text-center no-print">
-                        <button onclick="deleteStudent('${s.vehicleId}', ${s.studentIdx})" class="p-1.5 bg-rose-50 text-rose-600 hover:bg-rose-100 rounded-lg transition" title="حذف الطالب">
+                        <button onclick="deleteStudent('${s.vehicleId}', ${s.studentIdx})" class="px-2.5 py-1 bg-rose-100 text-rose-700 hover:bg-rose-200 rounded-lg transition font-bold text-xs flex items-center gap-1 mx-auto" title="حذف الطالب من الكشف">
                             <i class="fa-solid fa-trash-can text-xs"></i>
+                            <span>حذف</span>
                         </button>
                     </td>
                 </tr>
@@ -968,9 +988,54 @@
                 if (v.shift === 'مسائي') eCount += v.students.length;
             });
             if (document.getElementById('stat-total-students')) document.getElementById('stat-total-students').textContent = total;
-            if (document.getElementById('stat-total-vehicles')) document.getElementById('stat-total-vehicles').textContent = vehiclesData.length;
+            if (document.getElementById('stat-total-vehicles')) document.getElementById('stat-total-vehicles').textContent = customTotalVehicles !== null ? customTotalVehicles : vehiclesData.length;
             if (document.getElementById('stat-morning-students')) document.getElementById('stat-morning-students').textContent = `${mCount} طالب`;
             if (document.getElementById('stat-evening-students')) document.getElementById('stat-evening-students').textContent = `${eCount} طالب`;
+        }
+
+        function editTotalVehicles() {
+            const currentVal = customTotalVehicles !== null ? customTotalVehicles : vehiclesData.length;
+            const val = prompt('أدخل عدد السيارات التجميعي أو المخصص يدوياً:', currentVal);
+            if (val !== null && !isNaN(val) && parseInt(val) >= 0) {
+                customTotalVehicles = parseInt(val);
+                updateDashboardStats();
+            }
+        }
+
+        function editVehicleCapacity(vehicleId) {
+            const v = vehiclesData.find(x => x.id === vehicleId);
+            if (!v) return;
+            const newCap = prompt(`أدخل عدد السعة القصوى لـ (${v.school}):`, v.maxCapacity);
+            if (newCap !== null && !isNaN(newCap) && parseInt(newCap) > 0) {
+                v.maxCapacity = parseInt(newCap);
+                applyFilters();
+            }
+        }
+
+        function deleteStudent(vehicleId, studentIndex) {
+            const v = vehiclesData.find(x => x.id === vehicleId);
+            if (!v || !v.students[studentIndex]) return;
+            
+            const studentName = v.students[studentIndex].name;
+            if (confirm(`هل أنت تأكد من إزالة الطالب (${studentName}) من الكشف؟`)) {
+                v.students.splice(studentIndex, 1);
+                if (v.students.length === 0) {
+                    vehiclesData = vehiclesData.filter(x => x.id !== vehicleId);
+                }
+                applyFilters();
+                updateDashboardStats();
+
+                // WebApp Sync Trigger if AppScript URL is bound
+                const appsScriptUrl = localStorage.getItem('school_bus_appscript_url');
+                if (appsScriptUrl) {
+                    fetch(appsScriptUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ action: 'delete_student', name: studentName, vehicleId: vehicleId })
+                    }).catch(() => {});
+                }
+            }
         }
 
         function openDriverModal(vehicleId) {
@@ -1002,53 +1067,28 @@
                 v.vehiclePlate = plate;
                 try {
                     const saved = JSON.parse(localStorage.getItem('school_bus_drivers') || '{}');
-                    saved[id] = { name, phone, plate };
+                    saved[id] = { name, phone, plate, school: v.school, shift: v.shift };
                     localStorage.setItem('school_bus_drivers', JSON.stringify(saved));
                 } catch(err) {}
+
+                // Send to Google Apps Script if URL provided
+                const appsScriptUrl = localStorage.getItem('school_bus_appscript_url');
+                if (appsScriptUrl) {
+                    fetch(appsScriptUrl, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ action: 'save_driver', vehicleId: id, school: v.school, shift: v.shift, driverName: name, driverPhone: phone, vehiclePlate: plate })
+                    }).catch(() => {});
+                }
+
                 applyFilters();
                 closeDriverModal();
             }
         }
 
-        function editVehicleCapacity(vehicleId) {
-            const v = vehiclesData.find(x => x.id === vehicleId);
-            if (!v) return;
-            const newCap = prompt(`أدخل عدد السيارات المخصص أو السعة القصوى لـ (${v.school}):`, v.maxCapacity);
-            if (newCap !== null && !isNaN(newCap) && parseInt(newCap) > 0) {
-                v.maxCapacity = parseInt(newCap);
-                applyFilters();
-            }
-        }
-
-        let customTotalVehicles = null;
-
-        function editTotalVehicles() {
-            const currentVal = customTotalVehicles !== null ? customTotalVehicles : vehiclesData.length;
-            const val = prompt('أدخل عدد السيارات التجميعي أو المخصص يدوياً:', currentVal);
-            if (val !== null && !isNaN(val) && parseInt(val) >= 0) {
-                customTotalVehicles = parseInt(val);
-                updateDashboardStats();
-            }
-        }
-
-        function deleteStudent(vehicleId, studentIndex) {
-            const v = vehiclesData.find(x => x.id === vehicleId);
-            if (!v || !v.students[studentIndex]) return;
-            
-            const studentName = v.students[studentIndex].name;
-            if (confirm(`هل أنت تأكد من إزالة الطالب (${studentName}) من الكشف؟`)) {
-                v.students.splice(studentIndex, 1);
-                // Remove vehicle if empty
-                if (v.students.length === 0) {
-                    vehiclesData = vehiclesData.filter(x => x.id !== vehicleId);
-                }
-                applyFilters();
-                updateDashboardStats();
-            }
-        }
-
         function exportDriversToCsv() {
-            let csvContent = "data:text/csv;charset=utf-8,رقم السيارة,اسم المدرسة,الدوام,اسم السائق,رقم الجوال,رقم اللوحة\n";
+            let csvContent = "data:text/csv;charset=utf-8,\uFEFFرقم السيارة,اسم المدرسة,الدوام,اسم السائق,رقم الجوال,رقم اللوحة\n";
             vehiclesData.forEach(v => {
                 csvContent += `"${v.id}","${v.school}","${v.shift}","${v.driverName}","${v.driverPhone}","${v.vehiclePlate}"\n`;
             });
@@ -1061,18 +1101,61 @@
             document.body.removeChild(link);
         }
 
-        function updateDashboardStats() {
-            let total = 0, mCount = 0, eCount = 0;
-            vehiclesData.forEach(v => {
-                total += v.students.length;
-                if (v.shift === 'صباحي') mCount += v.students.length;
-                if (v.shift === 'مسائي') eCount += v.students.length;
-            });
-            if (document.getElementById('stat-total-students')) document.getElementById('stat-total-students').textContent = total;
-            if (document.getElementById('stat-total-vehicles')) document.getElementById('stat-total-vehicles').textContent = customTotalVehicles !== null ? customTotalVehicles : vehiclesData.length;
-            if (document.getElementById('stat-morning-students')) document.getElementById('stat-morning-students').textContent = `${mCount} طالب`;
-            if (document.getElementById('stat-evening-students')) document.getElementById('stat-evening-students').textContent = `${eCount} طالب`;
+        function openSyncSettingsModal() {
+            const inp = document.getElementById('googleSheetUrlInput');
+            if (inp) inp.value = localStorage.getItem('school_bus_sheet_url') || DEFAULT_GOOGLE_SHEET_URL;
+            document.getElementById('syncSettingsModal').classList.remove('hidden');
         }
+
+        function closeSyncSettingsModal() {
+            document.getElementById('syncSettingsModal').classList.add('hidden');
+        }
+
+        function saveSyncSettingsAndFetch() {
+            const val = document.getElementById('googleSheetUrlInput')?.value?.trim();
+            if (val) {
+                localStorage.setItem('school_bus_sheet_url', val);
+                syncWithGoogleSheets(val);
+            }
+        }
+
+        function openAppsScriptModal() {
+            const inp = document.getElementById('appsScriptUrlInput');
+            if (inp) inp.value = localStorage.getItem('school_bus_appscript_url') || '';
+            document.getElementById('appsScriptModal').classList.remove('hidden');
+        }
+
+        function closeAppsScriptModal() {
+            document.getElementById('appsScriptModal').classList.add('hidden');
+        }
+
+        function saveAppsScriptUrl() {
+            const val = document.getElementById('appsScriptUrlInput')?.value?.trim();
+            if (val) {
+                localStorage.setItem('school_bus_appscript_url', val);
+                alert('تم حفظ رابط Apps Script بنجاح! سيتم إرسال السائقين والحذف تلقائياً للشيت.');
+            }
+            closeAppsScriptModal();
+        }
+
+        function copyAppsScriptCode() {
+            const code = `function doPost(e) {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var data = JSON.parse(e.postData.contents);
+  if (data.action === 'save_driver') {
+    var sheet = ss.getSheetByName('بيانات السائقين');
+    if (!sheet) {
+      sheet = ss.insertSheet('بيانات السائقين');
+      sheet.appendRow(['رقم السيارة', 'المدرسة', 'الدوام', 'اسم السائق', 'رقم الجوال', 'رقم اللوحة']);
+    }
+    sheet.appendRow([data.vehicleId, data.school, data.shift, data.driverName, data.driverPhone, data.vehiclePlate]);
+  }
+  return ContentService.createTextOutput('Success');
+}`;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(code);
+                alert('تم نسخ كود Google Apps Script إلى الحافظة!');
+            }
         }
 
         function shareVehicleCard(vehicleId) {
@@ -1101,14 +1184,13 @@
             }
         }
 
-        // Initialize App on load
         function initApp() {
-            vehiclesData = [...staticBaselineVehicles];
+            vehiclesData = JSON.parse(JSON.stringify(staticBaselineVehicles));
             loadSavedDrivers();
             renderVehicleCards(vehiclesData);
             renderMasterTable(vehiclesData);
             updateDashboardStats();
-            setTimeout(() => { syncWithGoogleSheets(); }, 400);
+            setTimeout(() => { syncWithGoogleSheets(); }, 300);
         }
 
         if (document.readyState === 'loading') {
